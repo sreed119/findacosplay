@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  media: one
+  image: MyString
+  hair_color: MyString
+  hair_length: 1
+  eye_color: MyString
+
+two:
+  name: MyString
+  media: two
+  image: MyString
+  hair_color: MyString
+  hair_length: 1
+  eye_color: MyString
