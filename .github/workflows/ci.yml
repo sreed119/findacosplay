@@ -81,6 +81,11 @@ jobs:
           bundler: latest
           bundler-cache: true
 
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
       - name: Run tests
         env:
           RAILS_ENV: test
