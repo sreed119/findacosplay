@@ -1,0 +1,4 @@
+---
+# Brakeman configuration file
+# Disable update checks
+skip_update_check: true
