@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_032820) do
     t.string "item_link"
     t.float "price"
     t.integer "category"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_items_on_character_id"

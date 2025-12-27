@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[7.2]
       t.string :item_link
       t.float :price
       t.integer :category
+      t.boolean :active, default: true
 
       t.timestamps
     end
