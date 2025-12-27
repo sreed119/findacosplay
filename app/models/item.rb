@@ -6,7 +6,8 @@ class Item < ApplicationRecord
   has_many :user_items
   has_many :users, through: :user_items
 
-  belongs_to :character
+  has_many :character_items
+  has_many :characters, through: :character_items
 
   # Enum for category
   enum :category, { clothing: 1, accessory: 2, prop: 3, wig: 4, contacts: 5, makeup: 6, hat: 7 }, scopes: true, suffix: true

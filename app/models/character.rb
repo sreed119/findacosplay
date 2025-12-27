@@ -2,6 +2,8 @@ class Character < ApplicationRecord
   # Relationships
   has_many :user_characters
   has_many :users, through: :user_characters
+  has_many :character_items
+  has_many :items, through: :character_items
   belongs_to :media
 
   # Enum for hair length

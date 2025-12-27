@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_12_27_032820) do
+ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
+  create_table "character_items", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_items_on_character_id"
+    t.index ["item_id"], name: "index_character_items_on_item_id"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.integer "media_id", null: false
@@ -80,6 +89,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_032820) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "character_items", "characters"
+  add_foreign_key "character_items", "items"
   add_foreign_key "characters", "media", column: "media_id"
   add_foreign_key "items", "characters"
   add_foreign_key "user_characters", "characters"
