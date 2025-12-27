@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[7.2]
       t.string :store
       t.string :item_link
       t.float :price
-      t.integer :item_type
+      t.integer :category
 
       t.timestamps
     end
