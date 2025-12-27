@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  include Activeable::InstanceMethods
+  extend Activeable::ClassMethods
+
   # Relationships
   has_many :user_items
   has_many :users, through: :user_items
