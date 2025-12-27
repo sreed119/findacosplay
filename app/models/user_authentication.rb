@@ -1,4 +1,4 @@
-module UserAuthentication 
+module UserAuthentication
   extend ActiveSupport::Concern
 
   included do
@@ -9,7 +9,7 @@ module UserAuthentication
     enum :role, { admin: 1, user: 2 }, scopes: true, default: :cuser, suffix: true
 
     # For role dropdown
-    ROLES = [['Admin', 'admin'], ['User', 'user']].freeze
+    ROLES = [ [ "Admin", "admin" ], [ "User", "user" ] ].freeze
   end
 
   class_methods do
@@ -18,5 +18,4 @@ module UserAuthentication
       find_by_username(username).try(:authenticate, password)
     end
   end
-
 end
