@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  include Activeable::InstanceMethods
-  extend Activeable::ClassMethods
+  include Helpers::Activeable::InstanceMethods
+  extend Helpers::Activeable::ClassMethods
 
   # Relationships
   has_many :user_items
