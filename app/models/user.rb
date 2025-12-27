@@ -18,7 +18,8 @@ class User < ApplicationRecord
 
   # Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :role, presence: true, inclusion: { in: %w[admin user] }, message: "is not a recognized role in the system"
+  validates_presence_of :role
+  validates_inclusion_of :role, in: %w[admin user], message: "is not a recognized role in the system"
   validates_presence_of :password, on: :create
   validates_presence_of :password_confirmation, on: :create
   validates_confirmation_of :password, on: :create, message: "does not match"
