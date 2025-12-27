@@ -22,7 +22,7 @@ jobs:
           bundler-cache: true
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager -q
+        run: bin/brakeman --no-pager -q -c config/brakeman.yml
 
   scan_js:
     runs-on: ubuntu-latest
@@ -80,6 +80,7 @@ jobs:
         with:
           ruby-version: 3.1.4
           rubygems: latest
+          bundler: latest
           bundler-cache: true
 
       - name: Run tests
