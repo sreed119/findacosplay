@@ -1,2 +1,2 @@
 :skip_update_checks: true
-:ensure_latest:  false
+ensure_latest: false
