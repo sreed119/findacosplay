@@ -6,10 +6,10 @@ class Item < ApplicationRecord
   belongs_to :character
 
   # Enum for category
-  enum :category, { clothing: 1, accessory: 2, prop: 3, wig: 4, contacts: 5, makeup: 6 }, scopes: true, suffix: true
+  enum :category, { clothing: 1, accessory: 2, prop: 3, wig: 4, contacts: 5, makeup: 6, hat: 7 }, scopes: true, suffix: true
 
   # For category dropdown
-  CATEGORIES = [ [ "Clothing", "clothing" ], [ "Accessory", "accessory" ], [ "Prop", "prop" ], [ "Wig", "wig" ], [ "Contacts", "contacts" ], [ "Makeup", "makeup" ] ].freeze
+  CATEGORIES = [ [ "Clothing", "clothing" ], [ "Accessory", "accessory" ], [ "Prop", "prop" ], [ "Wig", "wig" ], [ "Contacts", "contacts" ], [ "Makeup", "makeup" ], [ "Hat", "hat" ] ].freeze
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
