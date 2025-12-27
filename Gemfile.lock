@@ -326,7 +326,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  brakeman
+  brakeman (~> 7.1)
   capybara
   debug
   error_highlight (>= 0.4.0)
