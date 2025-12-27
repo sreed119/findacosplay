@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "character_items", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "item_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_items_on_character_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.integer "media_id", null: false
+    t.bigint "media_id", null: false
     t.string "image"
     t.string "hair_color"
     t.integer "hair_length"
@@ -34,7 +37,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "character_id", null: false
+    t.bigint "character_id", null: false
     t.string "store"
     t.string "item_link"
     t.float "price"
@@ -53,30 +56,30 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
   end
 
   create_table "user_characters", force: :cascade do |t|
-    t.integer "username_id", null: false
-    t.integer "character_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_user_characters_on_character_id"
-    t.index ["username_id"], name: "index_user_characters_on_username_id"
+    t.index ["user_id"], name: "index_user_characters_on_user_id"
   end
 
   create_table "user_items", force: :cascade do |t|
-    t.integer "username_id", null: false
-    t.integer "item_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_user_items_on_item_id"
-    t.index ["username_id"], name: "index_user_items_on_username_id"
+    t.index ["user_id"], name: "index_user_items_on_user_id"
   end
 
   create_table "user_media", force: :cascade do |t|
-    t.integer "username_id", null: false
-    t.integer "media_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "medium_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["media_id"], name: "index_user_media_on_media_id"
-    t.index ["username_id"], name: "index_user_media_on_username_id"
+    t.index ["medium_id"], name: "index_user_media_on_medium_id"
+    t.index ["user_id"], name: "index_user_media_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,9 +97,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
   add_foreign_key "characters", "media", column: "media_id"
   add_foreign_key "items", "characters"
   add_foreign_key "user_characters", "characters"
-  add_foreign_key "user_characters", "usernames"
+  add_foreign_key "user_characters", "users"
   add_foreign_key "user_items", "items"
-  add_foreign_key "user_items", "usernames"
-  add_foreign_key "user_media", "media", column: "media_id"
-  add_foreign_key "user_media", "usernames"
+  add_foreign_key "user_items", "users"
+  add_foreign_key "user_media", "media"
+  add_foreign_key "user_media", "users"
 end

@@ -1,7 +1,7 @@
 class UserMedium < ApplicationRecord
   # Relationships
   belongs_to :user
-  belongs_to :media
+  belongs_to :medium
 
   # Validations
   validates_presence_of :user_id
