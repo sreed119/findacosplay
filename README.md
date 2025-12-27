@@ -1,9 +1,16 @@
-# README
+# Find a Cosplay
+This site was created as a way to easily keep track of cosplay resources, especially for those that are new to cosplay!
+<!-- This README would normally document whatever steps are necessary to get the
+application up and running. -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Tech Stack 🛠️
+- Rails (7.2)
+
+## How to Run
+Start the app by running `rails server` and stop the app with `Ctrl+C`
+
+<!-- Things you may want to cover:
 
 * Ruby version
 
@@ -21,4 +28,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
