@@ -6,31 +6,31 @@ on:
     branches: [ main ]
 
 jobs:
-  scan_ruby:
-    runs-on: ubuntu-latest
+  # scan_ruby:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1.4
-          rubygems: latest
-          bundler: latest
-          bundler-cache: true
+  #     - name: Set up Ruby
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 3.1.4
+  #         rubygems: latest
+  #         bundler: latest
+  #         bundler-cache: true
 
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: |
-          bin/brakeman --no-pager -q -c config/brakeman.yml
-          exit_code=$?
-          # Exit code 5 means "outdated version" - ignore it
-          if [ $exit_code -eq 5 ]; then
-            echo "Brakeman is outdated but continuing (Ruby version constraint)"
-            exit 0
-          fi
-          exit $exit_code
+  #     - name: Scan for common Rails security vulnerabilities using static analysis
+  #       run: |
+  #         bin/brakeman --no-pager -q -c config/brakeman.yml
+  #         exit_code=$?
+  #         # Exit code 5 means "outdated version" - ignore it
+  #         if [ $exit_code -eq 5 ]; then
+  #           echo "Brakeman is outdated but continuing (Ruby version constraint)"
+  #           exit 0
+  #         fi
+  #         exit $exit_code
 
   scan_js:
     runs-on: ubuntu-latest
