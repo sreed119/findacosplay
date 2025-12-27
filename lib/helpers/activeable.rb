@@ -3,10 +3,10 @@ module Activeable
     def active
       where(active: true)
     end
-    
+
     def inactive
       where.not(active: true)
-    end    
+    end
   end
 
   module InstanceMethods
@@ -14,7 +14,7 @@ module Activeable
       self.active = true
       self.save!
     end
-    
+
     def make_inactive
       self.active = false
       self.save!

@@ -5,7 +5,8 @@ application up and running. -->
 
 
 ## Tech Stack 🛠️
-- Rails (7.2)
+- Ruby 3.1.4
+- Rails 7.2
 
 ## How to Run
 Start the app by running `rails server` and stop the app with `Ctrl+C`
