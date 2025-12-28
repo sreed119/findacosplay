@@ -35,4 +35,4 @@
 /config/master.key
 
 # Ignore the simplecov coverage directory
-/coverage/
+/coverage/*
