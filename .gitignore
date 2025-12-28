@@ -36,3 +36,5 @@
 
 # Ignore the simplecov coverage directory
 /coverage/*
+coverage/.resultset.json
+coverage/index.html
