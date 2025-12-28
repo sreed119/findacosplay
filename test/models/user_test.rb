@@ -54,6 +54,24 @@ class UserTest < ActiveSupport::TestCase
       bad_user = FactoryBot.build(:user, username: "wheezy", password: "no", password_confirmation: "no")
       deny bad_user.valid?
     end
+
+    should "have class method to handle authentication services" do
+      assert User.authenticate("stephie", "secret")
+      deny User.authenticate("stephie", "notsecret")
+    end
+
+    should "have instance method to handle authentication services" do
+      assert_equal @u_steph, @u_steph.authenticate("secret")
+      deny @u_steph.authenticate("notsecret")
+    end
+
+    should "have role methods and recognize all three roles" do
+      assert @u_steph.admin_role? # should be a customer
+      deny @u_steph.user_role?
+
+      assert @u_larry.user_role? # should be a regular user
+      deny @u_larry.admin_role?
+    end
   end
   # test "the truth" do
   #   assert true
