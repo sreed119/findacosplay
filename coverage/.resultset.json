@@ -66,6 +66,77 @@
           null
         ]
       },
+      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_character.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_authentication.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/stephreed/Desktop/coding/findacosplay/app/models/character_item.rb": {
         "lines": [
           1,
@@ -113,7 +184,7 @@
           null
         ]
       },
-      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_character.rb": {
+      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_medium.rb": {
         "lines": [
           1,
           null,
@@ -123,63 +194,6 @@
           null,
           1,
           1,
-          null
-        ]
-      },
-      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_authentication.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
           null
         ]
       },
@@ -195,21 +209,8 @@
           1,
           null
         ]
-      },
-      "/Users/stephreed/Desktop/coding/findacosplay/app/models/user_medium.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1766886856
+    "timestamp": 1766887617
   }
 }

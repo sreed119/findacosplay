@@ -5,6 +5,9 @@ FactoryBot.define do
     end
     password { "secret" }
     password_confirmation { "secret" }
-    role { 1 }
+    role { 2 } # default to 'user' role
+    sequence :email do |n|
+      "user#{n}@example.com"
+    end
   end
 end
