@@ -18,6 +18,9 @@ class MediumTest < ActiveSupport::TestCase
   should allow_value("cartoon").for(:media_type)
   should allow_value("movie").for(:media_type)
   should allow_value("tv_show").for(:media_type)
+
+  should validate_presence_of(:name)
+  should validate_presence_of(:media_type)
   # test "the truth" do
   #   assert true
   # end
