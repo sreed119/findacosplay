@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "#{@user.username} account created successfully."
     else
+      flash.now[:alert] = "Error creating account. Please check the form."
       render :new
     end
   end
