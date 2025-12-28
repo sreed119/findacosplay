@@ -9,6 +9,18 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  # Regular HTML routes
+  get "home", to: "home#index", as: "home"
+  get "home/about", to: "home#about", as: "about"
+  # get "error_404", to: "errors#not_found", as: "error_404"
+
+  # Session management routes
+  resources :sessions, only: [ :new, :create, :destroy ]
+  get "login", to: "sessions#new", as: :login
+  get "logout", to: "sessions#destroy", as: :logout
+
+  resources :users
+
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "home#index"
 end
