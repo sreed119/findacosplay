@@ -20,6 +20,22 @@ class CharacterTest < ActiveSupport::TestCase
   should allow_value("bob").for(:hair_length)
   should allow_value("medium").for(:hair_length)
   should allow_value("long").for(:hair_length)
+
+  should validate_presence_of(:name)
+  should validate_presence_of(:medium_id)
+
+  context "Within context" do
+    setup do
+      create_media
+      create_characters
+    end
+
+    should "have a method to describe hair type" do
+      assert_equal "short, Yellow hair", @c_naruto.hair_type
+      assert_equal "short, Black hair", @c_luffy.hair_type
+      assert_equal "Orange bob", @c_nami.hair_type
+    end
+  end
   # test "the truth" do
   #   assert true
   # end

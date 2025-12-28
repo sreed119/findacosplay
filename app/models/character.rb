@@ -24,7 +24,7 @@ class Character < ApplicationRecord
     if hair_length == "bob"
       hair_color + " " + hair_length
     else
-      hair_length + " " + hair_color + " hair"
+      hair_length + ", " + hair_color + " hair"
     end
   end
 end
