@@ -1,6 +1,7 @@
 require "test_helper"
 
 class CharacterTest < ActiveSupport::TestCase
+  # Test Relationships
   should belong_to(:medium)
 
   should have_many(:user_characters)
@@ -9,6 +10,7 @@ class CharacterTest < ActiveSupport::TestCase
   should have_many(:character_items)
   should have_many(:items).through(:character_items)
 
+  # Test Validations
   should allow_value(1).for(:hair_length)
   should allow_value(2).for(:hair_length)
   should allow_value(3).for(:hair_length)

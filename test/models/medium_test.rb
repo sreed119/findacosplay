@@ -1,10 +1,12 @@
 require "test_helper"
 
 class MediumTest < ActiveSupport::TestCase
+  # Test Relationships
   should have_many(:characters)
   should have_many(:user_media)
   should have_many(:users).through(:user_media)
 
+  # Test Validations
   should allow_value(1).for(:media_type)
   should allow_value(3).for(:media_type)
   should allow_value(4).for(:media_type)

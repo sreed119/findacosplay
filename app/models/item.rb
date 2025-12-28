@@ -24,7 +24,7 @@ class Item < ApplicationRecord
   validates_presence_of :item_link
   validates_presence_of :store
   validates_presence_of :price
-  validates_inclusion_of :category, in: %w[clothing accessory prop wig contacts makeup], message: "is not a recognized category in the system"
+  validates_inclusion_of :category, in: %w[clothing accessory prop wig contacts makeup hat], message: "is not a recognized category in the system"
   validates_format_of :item_link, with: /\A(http)s?:\/\/([^@\s,;]+)\.(com|edu|org|net|gov|mil|biz|info)(\/[^@\s,;]+)*\z/i, message: "is not a valid format"
   validates_numericality_of :price, greater_than_or_equal_to: 0
 end
