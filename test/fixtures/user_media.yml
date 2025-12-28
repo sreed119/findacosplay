@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: one
-  media: one
+  user: one
+  medium: one
 
 two:
-  username: two
-  media: two
+  user: two
+  medium: two

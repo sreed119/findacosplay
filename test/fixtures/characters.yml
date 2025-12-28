@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  media: one
+  medium: one
   image: MyString
   hair_color: MyString
   hair_length: 1
@@ -10,7 +10,7 @@ one:
 
 two:
   name: MyString
-  media: two
+  medium: two
   image: MyString
   hair_color: MyString
   hair_length: 1
