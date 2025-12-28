@@ -22,6 +22,10 @@ class UserTest < ActiveSupport::TestCase
   should allow_value("sreed2@andrew.cmu.edu").for(:email)
   should allow_value("stephanie.reed.3026@gmail.com").for(:email)
 
+  should_not allow_value("!!!!@. ?,com").for(:email)
+  should_not allow_value("my fred@fred.com").for(:email)
+  should_not allow_value("fred@fred.con").for(:email)
+
   context "Within context" do
     setup do
       create_users
