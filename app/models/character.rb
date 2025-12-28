@@ -4,7 +4,7 @@ class Character < ApplicationRecord
   has_many :users, through: :user_characters
   has_many :character_items
   has_many :items, through: :character_items
-  belongs_to :media
+  belongs_to :medium
 
   # Enum for hair length
   enum :hair_length, { short: 1, bob: 2, medium: 3, long: 4 }, scopes: true, suffix: true
@@ -17,6 +17,7 @@ class Character < ApplicationRecord
 
   # Validations
   validates_presence_of :name
+  validates_presence_of :medium_id
 
   # Methods
   def hair_type

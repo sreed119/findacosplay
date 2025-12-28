@@ -50,6 +50,15 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
+  gem "shoulda-context", "~> 2.0.0"
+  gem "shoulda-matchers", "~> 5.0.0"
+  gem "minitest", "5.20"
+  gem "minitest-rails", "~> 7.2.0"
+  gem "minitest-reporters", "1.5.0"
+  gem "simplecov"
 end
 
 group :development do

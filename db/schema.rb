@@ -25,14 +25,14 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.bigint "media_id", null: false
+    t.bigint "medium_id", null: false
     t.string "image"
     t.string "hair_color"
     t.integer "hair_length"
     t.string "eye_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["media_id"], name: "index_characters_on_media_id"
+    t.index ["medium_id"], name: "index_characters_on_medium_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_27_211645) do
 
   add_foreign_key "character_items", "characters"
   add_foreign_key "character_items", "items"
-  add_foreign_key "characters", "media", column: "media_id"
+  add_foreign_key "characters", "media"
   add_foreign_key "items", "characters"
   add_foreign_key "user_characters", "characters"
   add_foreign_key "user_characters", "users"
