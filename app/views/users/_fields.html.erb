@@ -1,0 +1,6 @@
+<%= f.input :username, label_html: { class: 'active' } %>
+<%= f.input :email, label_html: { class: 'active' } %>
+<%= f.input :profile_picture, label_html: { class: 'active' } %>
+<%= f.input :role, collection: UserAuthentication::ROLES, include_blank: false %>
+<%= f.input :password, label_html: { class: 'active' } %>
+<%= f.input :password_confirmation, label_html: { class: 'active' } %>
