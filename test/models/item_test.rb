@@ -25,6 +25,14 @@ class ItemTest < ActiveSupport::TestCase
   should allow_value("contacts").for(:category)
   should allow_value("hat").for(:category)
 
+  should allow_value("http://example.com/item").for(:item_link)
+  should allow_value("www.example.com").for(:item_link)
+  should allow_value("https://www.miccostumes.com/jojos-golden-wind-trish-cosplay-costume-106507p.html").for(:item_link) # this is a real link so if it doesn't work we're cooked
+
+  should_not allow_value("example").for(:item_link)
+  should_not allow_value("htp:/example.com").for(:item_link)
+  should_not allow_value("aknvke!?CEMK").for(:item_link)
+
   should validate_presence_of(:name)
   should validate_presence_of(:category)
   should validate_presence_of(:item_link)
