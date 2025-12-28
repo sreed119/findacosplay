@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path, notice: "#{@user.username} account created successfully."
+      redirect_to user_path(@user), notice: "#{@user.username} account created successfully."
     else
       render :new
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "#{@user.username} account updated successfully."
+      redirect_to user_path(@user), notice: "#{@user.username} account updated successfully."
     else
       render :edit
     end
