@@ -4,7 +4,9 @@ FactoryBot.define do
       "Item #{n}"
     end
     category { "clothing" }
-    item_link { "http://www.example.com/item" }
+    sequence :item_link do |m|
+      "https://www.example.com/item#{m}"
+    end
     store { "Example Store" }
     price { 19.99 }
     active { true }

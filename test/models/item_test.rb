@@ -44,6 +44,12 @@ class ItemTest < ActiveSupport::TestCase
       create_items
     end
 
+    should "require items to have unique, case-sensitive links" do
+      # Try to switch strawhat's link to ninja_headband's link
+      @strawhat.item_link = @ninja_headband.item_link
+      deny @strawhat.valid?, "#{@strawhat.item_link}"
+    end
+
     should "show that scope exists for alphabeticizing items" do
       assert_equal [ "Ninja Headband", "Splattershot", "Straw Hat" ], Item.alphabetical.map(&:name)
     end

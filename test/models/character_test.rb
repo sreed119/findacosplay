@@ -40,6 +40,10 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal "Agent 8", m_strip.name
     end
 
+    should "correctly assess that a character is not destroyable" do
+      deny @c_naruto.destroy
+    end
+
     should "have a method to describe hair type" do
       assert_equal "short, Yellow hair", @c_naruto.hair_type
       assert_equal "short, Black hair", @c_luffy.hair_type

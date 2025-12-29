@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   # Validations
   validates_presence_of :name
   validates_presence_of :category
-  validates_presence_of :item_link
+  validates :item_link, presence: true, uniqueness: { case_sensitive: true }
   validates_presence_of :store
   validates_presence_of :price
   validates_inclusion_of :category, in: %w[clothing accessory prop wig contacts makeup hat], message: "is not a recognized category in the system"

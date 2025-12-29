@@ -37,6 +37,10 @@ class MediumTest < ActiveSupport::TestCase
       assert_equal "Bleach", m_strip.name
     end
 
+    should "correctly assess that a medium is not destroyable" do
+      deny @onepiece.destroy
+    end
+
     should "show that scope exists for alphabeticizing media" do
       assert_equal [ "Gravity Falls", "Naruto", "One Piece", "Splatoon" ], Medium.alphabetical.map(&:name)
     end
