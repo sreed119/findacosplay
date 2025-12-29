@@ -35,6 +35,16 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal "short, Black hair", @c_luffy.hair_type
       assert_equal "Orange bob", @c_nami.hair_type
     end
+
+    should "show that scope exists for alphabeticizing characters" do
+      assert_equal [ "Monkey D. Luffy", "Nami", "Naruto Uzumaki", "Sasuke Uchiha" ], Character.alphabetical.map(&:name)
+    end
+
+    should "show that scope exists for searching characters by term" do
+      assert_equal [ "Nami", "Naruto Uzumaki", "Sasuke Uchiha" ], Character.search("A").map(&:name)
+      assert_equal [ "Nami", "Naruto Uzumaki" ], Character.search("Na").map(&:name)
+      assert_equal [ "Monkey D. Luffy" ], Character.search("Luffy").map(&:name)
+    end
   end
   # test "the truth" do
   #   assert true

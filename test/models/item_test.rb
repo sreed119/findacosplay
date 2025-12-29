@@ -38,6 +38,29 @@ class ItemTest < ActiveSupport::TestCase
   should validate_presence_of(:item_link)
   should validate_presence_of(:store)
   should validate_numericality_of(:price).is_greater_than_or_equal_to(0)
+
+  context "Within context" do
+    setup do
+      create_items
+    end
+
+    should "show that scope exists for alphabeticizing items" do
+      assert_equal [ "Ninja Headband", "Splattershot", "Straw Hat" ], Item.alphabetical.map(&:name)
+    end
+
+    should "show that scope exists for searching items by term" do
+      assert_equal [ "Splattershot", "Straw Hat" ], Item.search("at").map(&:name)
+      assert_equal [ "Straw Hat" ], Item.search("Straw").map(&:name)
+    end
+
+    should "show that there are two active items do" do
+      assert_equal [ "Ninja Headband", "Straw Hat" ], Item.active.all.map(&:name).sort
+    end
+
+    should "show that there is one inactive item" do
+      assert_equal [ "Splattershot" ], Item.inactive.all.map(&:name).sort
+    end
+  end
   # test "the truth" do
   #   assert true
   # end

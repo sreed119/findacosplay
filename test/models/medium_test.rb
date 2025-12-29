@@ -21,6 +21,22 @@ class MediumTest < ActiveSupport::TestCase
 
   should validate_presence_of(:name)
   should validate_presence_of(:media_type)
+
+  context "Within context" do
+    setup do
+      create_media
+    end
+
+    should "show that scope exists for alphabeticizing media" do
+      assert_equal [ "Gravity Falls", "Naruto", "One Piece", "Splatoon" ], Medium.alphabetical.map(&:name)
+    end
+
+    should "show that scope exists for searching media by term" do
+      assert_equal [ "Naruto", "One Piece", "Splatoon" ], Medium.search("N").map(&:name)
+      assert_equal [ "One Piece", "Splatoon" ], Medium.search("On").map(&:name)
+      assert_equal [ "Splatoon" ], Medium.search("Splat").map(&:name)
+    end
+  end
   # test "the truth" do
   #   assert true
   # end

@@ -17,7 +17,7 @@ class Item < ApplicationRecord
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
-  scope :search, ->(term) { where("items.name LIKE ?", "#{term}%").order("items.name") }
+  scope :search, ->(term) { where("items.name ILIKE ?", "%#{term}%").order("items.name") }
 
   # Validations
   validates_presence_of :name

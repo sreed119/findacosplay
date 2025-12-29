@@ -72,6 +72,20 @@ class UserTest < ActiveSupport::TestCase
       assert @u_larry.user_role? # should be a regular user
       deny @u_larry.admin_role?
     end
+
+    should "show that scope exists for alphabeticizing users" do
+      assert_equal [ "catatonic", "larry", "stephie", "vi" ], User.alphabetical.all.map(&:username)
+    end
+
+    should "show that there are two admin" do
+      assert_equal 2, User.admins.size
+      assert_equal [ "catatonic", "stephie" ], User.admins.all.map(&:username).sort
+    end
+
+    should "show that there are two regular users" do
+      assert_equal 2, User.users.size
+      assert_equal [ "larry", "vi" ], User.users.all.map(&:username).sort
+    end
   end
   # test "the truth" do
   #   assert true
