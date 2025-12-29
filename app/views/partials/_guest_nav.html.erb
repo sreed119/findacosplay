@@ -1,0 +1,16 @@
+<nav id="nav">
+  <div class="container">
+    <ul class="left hide-on-med-and-down">
+        <%# Guests only see items, characters, media and create an account %>
+        <li><%= link_to 'Items', items_path %></li>
+        <li><%= link_to 'Characters', characters_path %></li>
+        <li><%= link_to 'Media', media_path %></li>
+        <li><%= link_to "Create an Account", new_user_path %></li>
+    </ul>
+    <ul class="right">
+      <li>
+        <%= link_to 'Login', login_path %>
+      </li>
+    </ul>
+  </div>
+</nav>
