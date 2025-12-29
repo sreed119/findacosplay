@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Saved Characters</h4>
+        <table class="striped-highlight">
+            <thead>
+                <th>Name</th>
+                <th>Media</th>
+                <th class="align_center">Options</th>
+            </thead>
+            <% for user_character in @user_characters%>
+                <tr>
+                    <td><%= link_to "#{user_character.character.name}", character_path(user_character.character) %></td>
+                    <td><%= user_character.character.medium.name %></td>
+                    <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <%= link_to(user_character_path(user_character), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you wish to delete this information?' }) do %>
+                        <i class="material-icons">delete</i>
+                    <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <br />
+        <%# Paginate if turns out to work correctly %>
+    </div>
+</div>

@@ -2,5 +2,7 @@
     <div class="card-content">
         <h4>Name: <%= @medium.name %></h4><br />
         <b>Media Type: <%= @medium.media_type %></b><br />
+
+        <b><%= link_to 'Save This Media', new_user_medium_path(medium_id: @medium.id) %></b><br />
     </div>
 </div>

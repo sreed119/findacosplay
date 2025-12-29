@@ -5,5 +5,7 @@
         <b>Item Link: <%= link_to "#{@item.name}", @item.item_link, target: "_blank" %></b><br />
         <b>Price: <%= @item.price %></b><br />
         <b>Category: <%= @item.category %></b><br />
+
+        <b><%= link_to 'Save This Item', new_user_item_path(item_id: @item.id) %></b><br />
     </div>
 </div>
