@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy", as: :logout
 
   resources :users
-  resources :media
-  resources :characters
-  resources :items
+  resources :media, except: [ :destroy ]
+  resources :characters, except: [ :destroy ]
+  resources :items, except: [ :destroy ]
   resources :user_items, except: [ :show ]
 
   # Defines the root path route ("/")

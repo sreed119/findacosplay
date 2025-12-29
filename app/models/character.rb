@@ -1,4 +1,6 @@
 class Character < ApplicationRecord
+  include Deletions
+
   # Relationships
   has_many :user_characters
   has_many :users, through: :user_characters
@@ -20,6 +22,9 @@ class Character < ApplicationRecord
   # Validations
   validates_presence_of :name
   validates_presence_of :medium_id
+
+  # Callbacks
+  before_destroy :cannot_destroy_object
 
   # Methods
   def hair_type

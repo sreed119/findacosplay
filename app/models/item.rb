@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  include Deletions
   include Helpers::Activeable::InstanceMethods
   extend Helpers::Activeable::ClassMethods
 
@@ -28,4 +29,7 @@ class Item < ApplicationRecord
   validates_inclusion_of :category, in: %w[clothing accessory prop wig contacts makeup hat], message: "is not a recognized category in the system"
   validates_format_of :item_link, with: /\A((https?:\/\/)|(www.))([^@\s,;]+)\.(com|edu|org|net|gov|mil|biz|info)(\/[^@\s,;]+)*\z/i, message: "is not a valid format"
   validates_numericality_of :price, greater_than_or_equal_to: 0
+
+  # Callbacks
+  before_destroy :cannot_destroy_object
 end

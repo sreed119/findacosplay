@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [ :show, :edit, :update, :destroy ]
-  before_action :check_login, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :set_character, only: [ :show, :edit, :update ]
+  before_action :check_login, only: [ :new, :create, :edit, :update ]
 
   # GET /characters
   def index
@@ -38,12 +38,6 @@ class CharactersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  # DELETE /characters/1
-  def destroy
-    @character.destroy
-    redirect_to characters_path, notice: "Character was successfully destroyed."
   end
 
   private

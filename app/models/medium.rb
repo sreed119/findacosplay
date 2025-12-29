@@ -1,4 +1,6 @@
 class Medium < ApplicationRecord
+  include Deletions
+
   # Relationships
   has_many :user_media
   has_many :users, through: :user_media
@@ -18,4 +20,7 @@ class Medium < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :media_type
   validates_inclusion_of :media_type, in: %w[animanga game cartoon movie tv_show], message: "is not a recognized media type in the system"
+
+  # Callbacks
+  before_destroy :cannot_destroy_object
 end

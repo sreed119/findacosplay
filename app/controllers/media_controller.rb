@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
-  before_action :set_media, only: [ :show, :edit, :update, :destroy ]
-  before_action :check_login, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :set_media, only: [ :show, :edit, :update ]
+  before_action :check_login, only: [ :new, :create, :edit, :update ]
 
   # GET /media
   def index
@@ -38,12 +38,6 @@ class MediaController < ApplicationController
     else
       render :edit
     end
-  end
-
-  # DELETE /media/1
-  def destroy
-    @medium.destroy
-    redirect_to media_path, notice: "Media was successfully destroyed."
   end
 
   private
