@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Characters</h4>
+        <table class="striped-highlight">
+            <thead>
+                <th>Name</th>
+                <th>Series</th>
+                <th>Hair Length</th>
+                <th>Hair Color</th>
+                <th>Eye Color</th>
+                <th class="align_center">Options</th>
+            </thead>
+            <% for character in @characters%>
+                <tr>
+                    <td><%= link_to "#{character.name}", character_path(character) %></td>
+                    <td><%= link_to "#{character.series}", series_path(character.series) %></td>
+                    <td><%= character.hair_length %></td>
+                    <td><%= character.hair_color %></td>
+                    <td><%= character.eye_color %></td>
+                    <td class="align_center">
+                    <%= link_to edit_character_path(character) do %>
+                        <i class="material-icons">edit</i>
+                    <% end %>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <%= link_to(character_path(character), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                        <i class="material-icons">delete</i>
+                    <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <br />
+        <%# Paginate if turns out to work correctly %>
+    </div>
+</div>

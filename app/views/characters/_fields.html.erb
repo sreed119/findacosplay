@@ -1,0 +1,7 @@
+<%= f.input :name, label_html: { class: 'active' } %>
+<%= f.input :medium_id, label_html: { class: 'active' } %>
+<%= f.input :image, label_html: { class: 'active' } %>
+<%= f.input :hair_length, collection: Character::HAIR_LENGTHS, include_blank: false %>
+<%= f.input :hair_color, label_html: { class: 'active' } %>
+<%= f.input :eye_color, label_html: { class: 'active' } %>
+

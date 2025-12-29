@@ -10,7 +10,6 @@
             <% for user in @users%>
                 <tr>
                     <td><%= link_to "#{user.username}", user_path(user) %></td>
-                    <%# Mail to function according to owners index view page from PATS code %>
                     <td><%= mail_to user.email, user.email, encode: "javascript" %></td>
                     <td class="align_center">
                     <%= link_to edit_user_path(user) do %>
