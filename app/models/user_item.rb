@@ -12,6 +12,5 @@ class UserItem < ApplicationRecord
   # Validations
   validates_presence_of :user_id
   validates_presence_of :item_id
-  validates_presence_of :purchased
   validates_inclusion_of :rating, in: %w[one_star two_stars three_stars four_stars five_stars], message: "is not a recognized rating in the system", allow_nil: true
 end

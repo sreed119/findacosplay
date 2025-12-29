@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="left hide-on-med-and-down">
         <%# Users can see their account, items, media, and characters %>
-        <li><%= link_to'My Account', user_path(current_user) %></li>
+        <li><%= link_to 'Account', user_path(current_user) %></li>
         <li><%= link_to 'Items', items_path %></li>
         <li><%= link_to 'Characters', characters_path %></li>
         <li><%= link_to 'Media', media_path %></li>

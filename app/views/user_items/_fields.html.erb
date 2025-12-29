@@ -1,0 +1,7 @@
+<%= f.input :user_id, collection: [ [current_user.username, current_user.id] ].freeze, include_blank: false %>
+<%= f.input :item_id, collection: get_item_options, include_blank: true %>
+<%= f.input :purchased, label_html: { class: 'active' } %>
+<% if @user_item && @user_item.purchased %>
+    <%= f.input :rating, collection: UserItem::RATINGS, include_blank: true %>
+    <%= f.input :review, label_html: { class: 'active' } %>
+<% end %>
