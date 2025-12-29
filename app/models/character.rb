@@ -14,6 +14,8 @@ class Character < ApplicationRecord
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
+  scope :for_medium, ->(medium_id) { where("medium_id = ?", medium_id) }
+  scope :search, ->(term) { where("characters.name LIKE ?", "#{term}%").order("characters.name") }
 
   # Validations
   validates_presence_of :name

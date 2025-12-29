@@ -12,6 +12,7 @@ class Medium < ApplicationRecord
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
+  scope :search, ->(term) { where("media.name LIKE ?", "#{term}%").order("media.name") }
 
   # Validations
   validates_presence_of :name
