@@ -44,6 +44,6 @@ class UserItemsController < ApplicationController
   end
 
   def user_item_params
-    params.require(:user_item).permit(:item_id, :user_id, :purchased, :rating, :review)
+    params.require(:user_item).permit(:item_id, :purchased, :rating, :review)
   end
 end
