@@ -4,7 +4,7 @@
         <table class="striped-highlight">
             <thead>
                 <th>Name</th>
-                <th>Series</th>
+                <th>Media</th>
                 <th>Hair Length</th>
                 <th>Hair Color</th>
                 <th>Eye Color</th>
@@ -13,7 +13,7 @@
             <% for character in @characters%>
                 <tr>
                     <td><%= link_to "#{character.name}", character_path(character) %></td>
-                    <td><%= link_to "#{character.series}", series_path(character.series) %></td>
+                    <td><%= link_to "#{character.medium.name}", medium_path(character.medium) %></td>
                     <td><%= character.hair_length %></td>
                     <td><%= character.hair_color %></td>
                     <td><%= character.eye_color %></td>

@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Media</h4>
+        <table class="striped-highlight">
+            <thead>
+                <th>Name</th>
+                <th>Media Type</th>
+                <th class="align_center">Options</th>
+            </thead>
+            <% for medium in @media%>
+                <tr>
+                    <td><%= link_to "#{medium.name}", medium_path(medium) %></td>
+                    <td><%= medium.media_type %></td>
+                    <td class="align_center">
+                    <%= link_to edit_medium_path(medium) do %>
+                        <i class="material-icons">edit</i>
+                    <% end %>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <%= link_to(medium_path(medium), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                        <i class="material-icons">delete</i>
+                    <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <br />
+        <%# Paginate if turns out to work correctly %>
+    </div>
+</div>

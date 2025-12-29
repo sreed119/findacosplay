@@ -51,6 +51,6 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :medium, :image, :hair_color, :hair_length, :eye_color)
+    params.require(:character).permit(:name, :medium_id, :image, :hair_color, :hair_length, :eye_color)
   end
 end

@@ -3,7 +3,7 @@ class MediaController < ApplicationController
 
   # GET /media
   def index
-    @media = Media.alphabetical
+    @media = Medium.alphabetical
   end
 
   # GET /media/1
@@ -12,7 +12,7 @@ class MediaController < ApplicationController
 
   # GET /media/new
   def new
-    @media = Media.new
+    @medium = Medium.new
   end
 
   # GET /media/1/edit
@@ -21,10 +21,10 @@ class MediaController < ApplicationController
 
   # POST /media
   def create
-    @media = Media.new(media_params)
+    @medium = Medium.new(media_params)
 
-    if @media.save
-      redirect_to medium_path(@media), notice: "#{@media.name} was successfully created in the system."
+    if @medium.save
+      redirect_to medium_path(@medium), notice: "#{@medium.name} was successfully created in the system."
     else
       render :new
     end
@@ -32,8 +32,8 @@ class MediaController < ApplicationController
 
   # PATCH/PUT /media/1
   def update
-    if @media.update(media_params)
-      redirect_to medium_path(@media), notice: "#{@media.name} was successfully updated in the system."
+    if @medium.update(media_params)
+      redirect_to medium_path(@medium), notice: "#{@medium.name} was successfully updated in the system."
     else
       render :edit
     end
@@ -41,16 +41,16 @@ class MediaController < ApplicationController
 
   # DELETE /media/1
   def destroy
-    @media.destroy
+    @medium.destroy
     redirect_to media_path, notice: "Media was successfully destroyed."
   end
 
   private
   def set_media
-    @media = Media.find(params[:id])
+    @medium = Medium.find(params[:id])
   end
 
   def media_params
-    params.require(:media).permit(:name, :media_type)
+    params.require(:medium).permit(:name, :media_type)
   end
 end

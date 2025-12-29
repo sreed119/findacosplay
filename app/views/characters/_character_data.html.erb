@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-content">
         <h4>Name: <%= @character.name %></h4><br />
-        <b>Series: <%= link_to "#{@character.series}", series_path(@character.series) %></b><br />
+        <b>Media: <%= link_to "#{@character.medium.name}", medium_path(@character.medium) %></b><br />
         <b>Hair Length: <%= @character.hair_length %></b><br />
         <b>Hair Color: <%= @character.hair_color %></b><br />
         <b>Eye Color: <%= @character.eye_color %></b><br />
