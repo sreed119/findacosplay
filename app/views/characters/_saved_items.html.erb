@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-content">
+        <h3>Cosplay Items</h3>
+        <table class="striped-highlight">
+            <thead>
+                <th>Name</th>
+                <th>Store</th>
+                <th>Price</th>
+            </thead>
+            <% for item in added_items %>
+                <tr>
+                    <td><%= link_to "#{item.name}", item_path(item) %></td>
+                    <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
+                    <td><%= item.price %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>

@@ -9,6 +9,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/1
   def show
+    @added_items = @character.items.alphabetical
   end
 
   # GET /characters/new

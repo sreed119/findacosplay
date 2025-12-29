@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :user_items, except: [ :show ]
   resources :user_media, except: [ :show, :edit, :update ]
   resources :user_characters, except: [ :show, :edit, :update ]
+  resources :character_items, only: [ :new, :create, :destroy ]
 
   # Defines the root path route ("/")
   root "home#index"
