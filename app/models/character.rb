@@ -22,6 +22,11 @@ class Character < ApplicationRecord
   # Validations
   validates_presence_of :name
   validates_presence_of :medium_id
+  validate :character_is_not_a_duplicate, on: :create
+
+  def already_exists?
+    Character.where(name: self.name, medium_id: self.medium_id).size == 1
+  end
 
   # Callbacks
   before_destroy :cannot_destroy_object
@@ -32,6 +37,15 @@ class Character < ApplicationRecord
       hair_color + " " + hair_length
     else
       hair_length + ", " + hair_color + " hair"
+    end
+  end
+
+  private
+  def character_is_not_a_duplicate
+    return true if self.name.nil? || self.medium_id.nil?
+    if self.already_exists?
+      medium = Medium.find_by(id: self.medium_id)
+      errors.add(:name, "This character (#{self.name}, from the #{medium.media_type} #{medium.name}) already exists in the system!")
     end
   end
 end

@@ -30,6 +30,11 @@ class CharacterTest < ActiveSupport::TestCase
       create_characters
     end
 
+    should "not allow duplicate characters for the same medium" do
+      c_dup = FactoryBot.build(:character, name: "Naruto Uzumaki", medium_id: @naruto)
+      deny c_dup.valid?
+    end
+
     should "have a method to describe hair type" do
       assert_equal "short, Yellow hair", @c_naruto.hair_type
       assert_equal "short, Black hair", @c_luffy.hair_type

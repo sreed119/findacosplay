@@ -27,6 +27,11 @@ class MediumTest < ActiveSupport::TestCase
       create_media
     end
 
+    should "not allow duplicate media" do
+      m_dup = FactoryBot.build(:medium, name: "Naruto", media_type: "animanga")
+      deny m_dup.valid?
+    end
+
     should "show that scope exists for alphabeticizing media" do
       assert_equal [ "Gravity Falls", "Naruto", "One Piece", "Splatoon" ], Medium.alphabetical.map(&:name)
     end

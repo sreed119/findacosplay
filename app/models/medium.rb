@@ -20,7 +20,20 @@ class Medium < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :media_type
   validates_inclusion_of :media_type, in: %w[animanga game cartoon movie tv_show], message: "is not a recognized media type in the system"
+  validate :medium_is_not_a_duplicate, on: :create
+
+  def already_exists?
+    Medium.where(name: self.name, media_type: self.media_type).size == 1
+  end
 
   # Callbacks
   before_destroy :cannot_destroy_object
+
+  private
+  def medium_is_not_a_duplicate
+    return true if self.name.nil? || self.media_type.nil?
+    if self.already_exists?
+      errors.add(:name, "This media (the #{self.media_type} #{self.name}) already exists in the system!")
+    end
+  end
 end
