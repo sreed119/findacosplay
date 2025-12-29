@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  include Deletions
+  include Helpers::Deletions
   include Helpers::Activeable::InstanceMethods
   extend Helpers::Activeable::ClassMethods
 

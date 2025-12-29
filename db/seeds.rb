@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# create default admin user if none exists
+if User.where(role: :admin).none? && ENV["INITIAL_ADMIN_EMAIL"]
+  User.create!(
+    email: ENV["INITIAL_ADMIN_EMAIL"],
+    password: ENV["INITIAL_ADMIN_PASSWORD"],
+    role: :admin
+  )
+end

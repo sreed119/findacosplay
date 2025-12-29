@@ -1,5 +1,5 @@
 class Medium < ApplicationRecord
-  include Deletions
+  include Helpers::Deletions
 
   # Relationships
   has_many :user_media

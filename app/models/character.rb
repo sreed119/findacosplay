@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-  include Deletions
+  include Helpers::Deletions
 
   # Relationships
   has_many :user_characters

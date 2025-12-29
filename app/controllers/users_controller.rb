@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.role = "user"
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "#{@user.username} account created successfully."
@@ -48,6 +50,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :role, :password, :password_confirmation, :profile_picture)
+    if current_user && current_user.admin_role?
+      params.require(:user).permit(:username, :email, :role, :password, :password_confirmation, :profile_picture)
+    else
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :profile_picture)
+    end
   end
 end
