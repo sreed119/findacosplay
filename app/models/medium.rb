@@ -27,9 +27,14 @@ class Medium < ApplicationRecord
   end
 
   # Callbacks
+  before_validation :strip_name
   before_destroy :cannot_destroy_object
 
   private
+  def strip_name
+    self.name = name&.strip
+  end
+
   def medium_is_not_a_duplicate
     return true if self.name.nil? || self.media_type.nil?
     if self.already_exists?

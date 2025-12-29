@@ -29,6 +29,7 @@ class Character < ApplicationRecord
   end
 
   # Callbacks
+  before_validation :strip_name
   before_destroy :cannot_destroy_object
 
   # Methods
@@ -41,6 +42,10 @@ class Character < ApplicationRecord
   end
 
   private
+  def strip_name
+    self.name = name&.strip
+  end
+
   def character_is_not_a_duplicate
     return true if self.name.nil? || self.medium_id.nil?
     if self.already_exists?

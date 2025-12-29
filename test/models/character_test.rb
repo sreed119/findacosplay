@@ -35,6 +35,11 @@ class CharacterTest < ActiveSupport::TestCase
       deny c_dup.valid?
     end
 
+    should "strip leading and trailing whitespace from name" do
+      m_strip = FactoryBot.create(:character, name: "  Agent 8  ", medium: @splatoon)
+      assert_equal "Agent 8", m_strip.name
+    end
+
     should "have a method to describe hair type" do
       assert_equal "short, Yellow hair", @c_naruto.hair_type
       assert_equal "short, Black hair", @c_luffy.hair_type

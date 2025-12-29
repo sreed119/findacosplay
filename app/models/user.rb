@@ -18,6 +18,7 @@ class User < ApplicationRecord
 
   # Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates_format_of :username, with: /\A(\w|\.|\_|\-)+\z/i, message: "can only contain letters, numbers, dots, dashes, and underscores"
   validates_presence_of :email
   validates_presence_of :role
   validates_inclusion_of :role, in: %w[admin user], message: "is not a recognized role in the system"

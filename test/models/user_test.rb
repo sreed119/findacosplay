@@ -26,6 +26,15 @@ class UserTest < ActiveSupport::TestCase
   should_not allow_value("my fred@fred.com").for(:email)
   should_not allow_value("fred@fred.con").for(:email)
 
+  should allow_value("stephie").for(:username)
+  should allow_value("catatonic_123").for(:username)
+  should allow_value("prof_h").for(:username)
+  should allow_value("C-M-U").for(:username)
+
+  should_not allow_value("stephie!").for(:username)
+  should_not allow_value("cat atonic").for(:username)
+  should_not allow_value("prof#h").for(:username)
+
   context "Within context" do
     setup do
       create_users

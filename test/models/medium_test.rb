@@ -32,6 +32,11 @@ class MediumTest < ActiveSupport::TestCase
       deny m_dup.valid?
     end
 
+    should "strip leading and trailing whitespace from name" do
+      m_strip = FactoryBot.create(:medium, name: "  Bleach  ", media_type: "animanga")
+      assert_equal "Bleach", m_strip.name
+    end
+
     should "show that scope exists for alphabeticizing media" do
       assert_equal [ "Gravity Falls", "Naruto", "One Piece", "Splatoon" ], Medium.alphabetical.map(&:name)
     end
