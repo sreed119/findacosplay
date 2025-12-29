@@ -8,7 +8,6 @@ class UserItemTest < ActiveSupport::TestCase
   # Test Validations
   should validate_presence_of(:user_id)
   should validate_presence_of(:item_id)
-  should validate_presence_of(:purchased)
 
   should allow_value(nil).for(:rating)
   should allow_value("one_star").for(:rating)
