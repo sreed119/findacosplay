@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [ :show, :edit, :update ]
-  before_action :check_login, only: [ :new, :create, :edit, :update ]
+  before_action :set_item, only: [ :show, :edit, :update, :destroy ]
+  before_action :check_login, only: [ :new, :create, :edit, :update, :destroy ]
 
   # GET /items
   def index
@@ -38,6 +38,12 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.make_inactive
+    # Items cannot be fully destroyed, but can be set to inactive if out of stock or equivalent
+    redirect_to items_path, notice: "#{@item.name} was successfully made inactive in the system."
   end
 
   private

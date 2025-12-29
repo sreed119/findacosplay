@@ -60,6 +60,16 @@ class ItemTest < ActiveSupport::TestCase
     should "show that there is one inactive item" do
       assert_equal [ "Splattershot" ], Item.inactive.all.map(&:name).sort
     end
+
+    should "have make_active and make_inactive methods" do
+      assert @ninja_headband.active
+      @ninja_headband.make_inactive
+      @ninja_headband.reload
+      deny @ninja_headband.active
+      @ninja_headband.make_active
+      @ninja_headband.reload
+      assert @ninja_headband.active
+    end
   end
   # test "the truth" do
   #   assert true

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :users
   resources :media, except: [ :destroy ]
   resources :characters, except: [ :destroy ]
-  resources :items, except: [ :destroy ]
+  resources :items
   resources :user_items, except: [ :show ]
 
   # Defines the root path route ("/")
