@@ -1,0 +1,6 @@
+<%= f.input :name, label_html: { class: 'active' } %>
+<%= f.input :store, label_html: { class: 'active' } %>
+<%= f.input :image, label_html: { class: 'active' } %>
+<%= f.input :item_link, label_html: { class: 'active' } %>
+<%= f.input :price, label_html: { class: 'active' } %>
+<%= f.input :category, collection: Item::CATEGORIES, include_blank: true %>

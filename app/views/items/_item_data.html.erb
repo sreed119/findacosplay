@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Item: <%= @item.name %></h4><br />
+        <b>Store: <%= @item.store %></b><br />
+        <b>Item Link: <%= link_to "#{@item.name}", @item.item_link, target: "_blank" %></b><br />
+        <b>Price: <%= @item.price %></b><br />
+        <b>Category: <%= @item.category %></b><br />
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Items</h4>
+        <table class="striped-highlight">
+            <thead>
+                <th>Name</th>
+                <th>Store</th>
+                <th>Item Link</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th class="align_center">Options</th>
+            </thead>
+            <% for item in @items%>
+                <tr>
+                    <td><%= link_to "#{item.name}", item_path(item) %></td>
+                    <td><%= item.store %></td>
+                    <td><%= link_to "#{item.name}", item.item_link, target: "_blank" %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.category %></td>
+                    <td class="align_center">
+                    <%= link_to edit_item_path(item) do %>
+                        <i class="material-icons">edit</i>
+                    <% end %>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <%= link_to(item_path(item), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                        <i class="material-icons">delete</i>
+                    <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <br />
+        <%# Paginate if turns out to work correctly %>
+    </div>
+</div>
