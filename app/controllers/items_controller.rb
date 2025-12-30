@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      redirect_to item_path(@item), notice: "#{@item.name} was successfully created in the system."
+      redirect_to item_path(@item), notice: "Item was successfully created in the system."
     else
       render :new
     end
