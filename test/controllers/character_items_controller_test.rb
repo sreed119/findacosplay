@@ -25,6 +25,14 @@ class CharacterItemsControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Item was successfully added to the character #{@character2.name}.", flash[:notice]
   end
 
+  test "should not create invalid character_item" do
+    assert_no_difference("CharacterItem.count") do
+      post character_items_path, params: { character_item: { character_id: nil, item_id: @item.id } }
+    end
+
+    assert_template :new
+  end
+
   test "should destroy character_item" do
     @character3 = FactoryBot.create(:character, medium: @medium)
     @byebye_saved_item = FactoryBot.create(:character_item, character: @character3, item: @item)

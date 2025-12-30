@@ -47,4 +47,16 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     patch item_path(@item), params: { item: { name: "Marinated Headphones", store: "Store A", image: @item.image, item_link: "not a link >:)", price: 34.99, category: @item.category, active: @item.active } }
     assert_template :edit
   end
+
+  test "should destroy item (make inactive)" do
+    assert_difference("Item.active.count", -1) do
+      delete item_path(@item)
+    end
+
+    assert_redirected_to items_path
+    follow_redirect!
+    @item.reload
+    deny @item.active
+    assert_equal "#{@item.name} was successfully made inactive in the system.", flash[:notice]
+  end
 end

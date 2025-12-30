@@ -49,6 +49,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_template :edit
   end
 
+  test "non-admin should not update role" do
+    logout_now
+    login_as(:user)
+    patch user_path(@user), params: { user: { username: @user.username, email: "updated@example.com", password: "secret", password_confirmation: "secret", profile_picture: @user.profile_picture } }
+    assert_redirected_to user_path(@user)
+    logout_now
+    login_as(:admin)
+  end
+
   test "should destroy user" do
     @byebyeuser = FactoryBot.create(:user, username: "byebyeuser", email: "bye@example.com")
     assert_difference("User.count", -1) do

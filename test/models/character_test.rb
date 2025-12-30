@@ -33,6 +33,9 @@ class CharacterTest < ActiveSupport::TestCase
     should "not allow duplicate characters for the same medium" do
       c_dup = FactoryBot.build(:character, name: "Naruto Uzumaki", medium_id: @naruto)
       deny c_dup.valid?
+
+      c_dup2 = FactoryBot.build(:character, name: "Monkey D. Luffy", medium: @onepiece)
+      deny c_dup2.valid?
     end
 
     should "strip leading and trailing whitespace from name" do
