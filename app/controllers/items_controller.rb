@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   def show
+    @average = UserItem.where(item_id: @item.id).average(:rating)
+    if @average
+      @average = @average.round
+    end
   end
 
   # GET /items/new

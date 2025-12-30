@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-content">
         <h3><%= @item.name %></h3><br />
+        <b><%= @average ? "Rating: #{@average}"  : "No ratings yet" %></b><br />
         <b>Store: <%= link_to "#{@item.store}", @item.item_link, target: "_blank" %></b><br />
         <b>Price: <%= @item.price %></b><br />
         <b>Category: <%= @item.category %></b><br />
