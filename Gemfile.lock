@@ -173,7 +173,7 @@ GEM
     minitest-rails (7.2.0)
       minitest (~> 5.20)
       railties (>= 7.2.0, < 8.0.0)
-    minitest-reporters (1.7.0)
+    minitest-reporters (1.7.1)
       ansi
       builder
       minitest (>= 5.0)
@@ -419,7 +419,7 @@ DEPENDENCIES
   materialize-sass (= 0.100.2.1)
   minitest (= 5.20)
   minitest-rails (~> 7.2.0)
-  minitest-reporters (= 1.7)
+  minitest-reporters (= 1.7.1)
   pg
   puma (>= 5.0)
   rails (~> 7.2.3)
