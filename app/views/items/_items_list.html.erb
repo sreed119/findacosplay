@@ -13,8 +13,8 @@
                 <tr>
                     <td><%= link_to "#{item.name}", item_path(item) %></td>
                     <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
-                    <td><%= item.price %></td>
-                    <td><%= item.category %></td>
+                    <td>$<%= item.price %></td>
+                    <td><%= item.category.capitalize %></td>
                     <td class="align_center">
                     <%= link_to edit_item_path(item) do %>
                         <i class="material-icons">edit</i>

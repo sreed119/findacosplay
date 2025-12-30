@@ -14,7 +14,7 @@
                 <tr>
                     <td><%= link_to "#{character.name}", character_path(character) %></td>
                     <td><%= link_to "#{character.medium.name}", medium_path(character.medium) %></td>
-                    <td><%= character.hair_length %></td>
+                    <td><%= character.hair_length.capitalize %></td>
                     <td><%= character.hair_color %></td>
                     <td><%= character.eye_color %></td>
                     <td class="align_center">

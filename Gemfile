@@ -11,6 +11,9 @@ gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+# Use SCSS for stylesheets
+gem "sass-rails", "~> 6.0.0"
+
 gem "concurrent-ruby", "< 1.3.5"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -42,6 +45,10 @@ gem "validates_timeliness", "7.0.0"
 gem "cancancan"
 gem "simple_form"
 gem "will_paginate"
+gem "materialize-sass", "0.100.2.1"
+gem "materialize-form", "1.0.8"
+gem "jquery-rails", "4.3.1"
+gem "jquery-ui-rails", "6.0.1"
 
 gem "dotenv-rails"
 
