@@ -22,6 +22,7 @@ require "minitest/rails"
 require "minitest/reporters"
 require "minitest_extensions"
 require "contexts"
+require "login_logout"
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

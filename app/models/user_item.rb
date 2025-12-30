@@ -13,4 +13,17 @@ class UserItem < ApplicationRecord
   validates_presence_of :user_id
   validates_presence_of :item_id
   validates_inclusion_of :rating, in: %w[one_star two_stars three_stars four_stars five_stars], message: "is not a recognized rating in the system", allow_nil: true
+  validate :item_is_not_a_duplicate, on: :create
+
+  def already_exists?
+    UserItem.where(user_id: self.user_id, item_id: self.item_id).size == 1
+  end
+
+  private
+  def item_is_not_a_duplicate
+    return true if self.user_id.nil? || self.item_id.nil?
+    if self.already_exists?
+      errors.add(:item_id, "You've already saved this item!")
+    end
+  end
 end

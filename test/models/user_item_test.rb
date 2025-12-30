@@ -15,6 +15,19 @@ class UserItemTest < ActiveSupport::TestCase
   should allow_value("three_stars").for(:rating)
   should allow_value("four_stars").for(:rating)
   should allow_value("five_stars").for(:rating)
+
+  context "Within context" do
+    setup do
+      create_users
+      create_items
+      create_user_items
+    end
+
+    should "not allow duplicate user_item associations" do
+      ui_dup = FactoryBot.build(:user_item, user: @u_steph, item: @strawhat)
+      deny ui_dup.valid?
+    end
+  end
   # test "the truth" do
   #   assert true
   # end
