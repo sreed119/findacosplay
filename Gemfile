@@ -61,7 +61,7 @@ group :development, :test do
   gem "shoulda-matchers", "~> 5.0.0"
   gem "minitest", "5.20"
   gem "minitest-rails", "~> 7.2.0"
-  gem "minitest-reporters", "1.5.0"
+  gem "minitest-reporters", "1.7"
   gem "simplecov"
 end
 

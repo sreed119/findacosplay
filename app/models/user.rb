@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates_presence_of :password_confirmation, on: :create
   validates_confirmation_of :password, on: :create, message: "does not match"
   validates_length_of :password, minimum: 6, message: "must be at least 6 characters long", allow_blank: true
-  validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
+  validates_format_of :email, with: /\A[\w]([^@\s,;!%$\^\*']+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
 
   # Callbacks
   before_destroy :remove_saves
