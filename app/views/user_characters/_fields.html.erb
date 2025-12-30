@@ -1,1 +1,5 @@
-<%= f.input :character_id, collection: get_character_options, include_blank: true %>
+<% if @user_character && @user_character.character_id %>
+    <%= f.input :character_id, collection: get_character_options, include_blank: false, selected: @user_character.character_id %>
+<% else %>
+    <%= f.input :character_id, collection: get_character_options, include_blank: true %>
+<% end %>

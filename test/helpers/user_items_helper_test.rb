@@ -9,6 +9,6 @@ class UserItemsHelperTest < ActionView::TestCase
   end
 
   test "should get correct items options array for dropdown menu" do
-    assert_equal [ [ "#{@item2.name}", @item2.id ] ], get_item_options(@user)
+    assert_equal [ [ "#{@item2.name}", @item2.id ] ], get_unsaved_items(@user)
   end
 end

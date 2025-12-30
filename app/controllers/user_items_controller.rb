@@ -9,7 +9,7 @@ class UserItemsController < ApplicationController
   end
 
   def new
-    @user_item = UserItem.new
+    @user_item = UserItem.new(item_id: params[:item_id])
   end
 
   def create

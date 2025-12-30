@@ -1,2 +1,6 @@
-<%= f.input :item_id, collection: get_item_character_options, include_blank: true %>
+<% if @character_item && @character_item.item_id %>
+    <%= f.input :item_id, collection: get_item_options, include_blank: false, selected: @character_item.item_id %>
+<% else %>
+    <%= f.input :item_id, collection: get_item_options, include_blank: true %>
+<% end %>
 <%= f.input :character_id, collection: get_character_item_options, include_blank: true %>

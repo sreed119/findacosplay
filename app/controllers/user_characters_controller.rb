@@ -9,7 +9,7 @@ class UserCharactersController < ApplicationController
 
   # GET /user_characters/new
   def new
-    @user_character = UserCharacter.new
+    @user_character = UserCharacter.new(character_id: params[:character_id])
   end
 
   # POST /user_characters or /user_characters.json

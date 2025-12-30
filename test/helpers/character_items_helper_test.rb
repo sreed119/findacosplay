@@ -12,6 +12,6 @@ class CharacterItemsHelperTest < ActionView::TestCase
   end
 
   test "should get correct items options array for dropdown menu" do
-    assert_equal [ [ "#{@item.name}", @item.id ] ], get_item_character_options
+    assert_equal [ [ "#{@item.name}", @item.id ] ], get_item_options
   end
 end

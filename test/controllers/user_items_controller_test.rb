@@ -43,7 +43,7 @@ class UserItemsControllerTest < ActionDispatch::IntegrationTest
     patch user_item_path(@user_item), params: { user_item: { item_id: @item1.id, purchased: true, rating: "five_stars", review: "Great item!" } }
     assert_redirected_to user_items_path
 
-    patch user_item_path(@user_item), params: { user_item: { item_id: nil, purchased: true, rating: "four_stars", review: "Good item." } }
+    patch user_item_path(@user_item), params: { user_item: { item_id: nil, purchased: nil, rating: "four_stars", review: "Good item." } }
     assert_template :edit
   end
 

@@ -9,7 +9,7 @@ class UserMediaController < ApplicationController
   end
 
   def new
-    @user_medium = UserMedium.new
+    @user_medium = UserMedium.new(medium_id: params[:medium_id])
   end
 
   def create

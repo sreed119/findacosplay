@@ -4,7 +4,7 @@ class CharacterItemsController < ApplicationController
   authorize_resource
 
   def new
-    @character_item = CharacterItem.new
+    @character_item = CharacterItem.new(item_id: params[:item_id])
   end
 
   def create
