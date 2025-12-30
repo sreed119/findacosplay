@@ -372,7 +372,7 @@ GEM
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
     useragent (0.16.11)
-    validates_timeliness (7.0.0)
+    validates_timeliness (7.1.0)
       activemodel (>= 7.0.0, < 8)
       timeliness (>= 0.3.10, < 1)
     web-console (4.2.1)
@@ -435,7 +435,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  validates_timeliness (= 7.0.0)
+  validates_timeliness (= 7.1.0)
   web-console
   will_paginate
 
