@@ -26,7 +26,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
 
     if @character.save
-      redirect_to character_path(@character), notice: "#{@character.name} was successfully created in the system."
+      redirect_to character_path(@character), notice: "Character was successfully created in the system."
     else
       render :new
     end
