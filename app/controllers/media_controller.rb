@@ -25,7 +25,7 @@ class MediaController < ApplicationController
     @medium = Medium.new(media_params)
 
     if @medium.save
-      redirect_to medium_path(@medium), notice: "#{@medium.name} was successfully created in the system."
+      redirect_to medium_path(@medium), notice: "Media was successfully created in the system."
     else
       render :new
     end
