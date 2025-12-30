@@ -2,7 +2,7 @@
     <div class="card-content">
         <h3><%= @medium.name %></h3><br />
         <b>Media Type: <%= @medium.media_type %></b><br />
-
+        <p>&nbsp;</p>
         <% if @is_saved %>
             <%= button_to user_medium_path(@user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
                 <b>Remove from Saves</b>

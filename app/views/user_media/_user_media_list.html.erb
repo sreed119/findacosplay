@@ -10,9 +10,8 @@
             <% for user_medium in @user_media%>
                 <tr>
                     <td><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></td>
-                    <td><%= user_medium.medium.media_type %></td>
+                    <td><%= user_medium.medium.media_type.capitalize %></td>
                     <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp; 
                     <%= link_to(user_medium_path(user_medium), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you wish to delete this information?' }) do %>
                         <i class="material-icons">delete</i>
                     <% end %>

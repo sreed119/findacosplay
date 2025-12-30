@@ -5,18 +5,12 @@
             <thead>
                 <th>Name</th>
                 <th>Media</th>
-                <th>Hair Length</th>
-                <th>Hair Color</th>
-                <th>Eye Color</th>
                 <th class="align_center">Options</th>
             </thead>
             <% for character in @characters%>
                 <tr>
                     <td><%= link_to "#{character.name}", character_path(character) %></td>
                     <td><%= link_to "#{character.medium.name}", medium_path(character.medium) %></td>
-                    <td><%= character.hair_length.capitalize %></td>
-                    <td><%= character.hair_color %></td>
-                    <td><%= character.eye_color %></td>
                     <td class="align_center">
                     <%= link_to edit_character_path(character) do %>
                         <i class="material-icons">edit</i>

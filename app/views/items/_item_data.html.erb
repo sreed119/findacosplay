@@ -2,10 +2,10 @@
     <div class="card-content">
         <h3><%= @item.name %></h3><br />
         <b><%= @average ? "Rating: #{@average}"  : "No ratings yet" %></b><br />
-        <b>Store: <%= link_to "#{@item.store}", @item.item_link, target: "_blank" %></b><br />
+        <b>Store: <%= @item.store %></b><br />
         <b>Price: $<%= @item.price %></b><br />
-        <b>Category: <%= @item.category %></b><br />
-
+        <b>Category: <%= @item.category.capitalize %></b><br />
+        <p>&nbsp;</p>
         <% if @is_saved %>
             <%= button_to user_item_path(@user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
                 <b>Remove from Saves</b>
@@ -13,6 +13,11 @@
         <% else %>
             <b><%= button_to 'Save This Item', new_user_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
         <% end %>
-        <b><%= link_to 'Add this Item to a Character', new_character_item_path(item_id: @item.id) %></b><br />
+        <p>&nbsp;</p>
+        <b><%= button_to 'Add this Item to a Character', new_character_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
+
+        <div class="card-action">
+            <a href="<%= @item.item_link %>" target="_blank">View in Store</a>
+        </div>
     </div>
 </div>
