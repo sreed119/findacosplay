@@ -6,3 +6,4 @@
         <b><%= link_to 'Save This Media', new_user_medium_path(medium_id: @medium.id) %></b><br />
     </div>
 </div>
+<%= render partial: "characters", locals: { characters: @characters } %>

@@ -17,6 +17,9 @@ class Character < ApplicationRecord
   # Scopes
   scope :alphabetical, -> { order(:name) }
   scope :for_medium, ->(medium_id) { where("medium_id = ?", medium_id) }
+  scope :with_hair_length, ->(length) { where("hair_length = ?", hair_lengths[length]) }
+  scope :with_hair_color, ->(color) { where("hair_color ILIKE ?", "%#{color}%") }
+  scope :with_eye_color, ->(color) { where("eye_color ILIKE ?", "%#{color}%") }
   scope :search, ->(term) { where("characters.name ILIKE ?", "%#{term}%").order("characters.name") }
 
   # Validations

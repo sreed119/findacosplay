@@ -4,6 +4,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     login_as(:admin)
     @item = FactoryBot.create(:item, name: "Existing Item", store: "Store A", price: 29.99)
+    @ui1 = FactoryBot.create(:user_item, item: @item, user: @user, purchased: true, rating: 4)
+    @user2 = FactoryBot.create(:user)
+    @ui2 = FactoryBot.create(:user_item, item: @item, user: @user2, purchased: true, rating: 2)
   end
 
   test "should get index" do

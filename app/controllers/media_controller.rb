@@ -10,6 +10,7 @@ class MediaController < ApplicationController
 
   # GET /media/1
   def show
+    @characters = @medium.characters.alphabetical
   end
 
   # GET /media/new

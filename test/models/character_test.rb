@@ -62,6 +62,27 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal [ "Nami", "Naruto Uzumaki" ], Character.search("Na").map(&:name)
       assert_equal [ "Monkey D. Luffy" ], Character.search("Luffy").map(&:name)
     end
+
+    should "show that scope exists for filtering characters by medium" do
+      assert_equal [ "Naruto Uzumaki", "Sasuke Uchiha" ], Character.for_medium(@naruto.id).map(&:name).sort
+      assert_equal [ "Monkey D. Luffy", "Nami" ], Character.for_medium(@onepiece.id).map(&:name)
+    end
+
+    should "show that scope exists for filtering characters by hair length" do
+      assert_equal [ "Monkey D. Luffy", "Naruto Uzumaki" ], Character.with_hair_length("short").map(&:name).sort
+      assert_equal [ "Nami", "Sasuke Uchiha" ], Character.with_hair_length("bob").map(&:name).sort
+    end
+
+    should "show that scope exists for filtering characters by hair color" do
+      assert_equal [ "Naruto Uzumaki" ], Character.with_hair_color("Yellow").map(&:name)
+      assert_equal [ "Monkey D. Luffy", "Sasuke Uchiha" ], Character.with_hair_color("Black").map(&:name).sort
+      assert_equal [ "Nami" ], Character.with_hair_color("Orange").map(&:name)
+    end
+
+    should "show that scope exists for filtering characters by eye color" do
+      assert_equal [ "Naruto Uzumaki" ], Character.with_eye_color("Blue").map(&:name)
+      assert_equal [ "Sasuke Uchiha" ], Character.with_eye_color("Black").map(&:name)
+    end
   end
   # test "the truth" do
   #   assert true
