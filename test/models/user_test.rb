@@ -95,6 +95,22 @@ class UserTest < ActiveSupport::TestCase
       assert_equal 2, User.users.size
       assert_equal [ "larry", "vi" ], User.users.all.map(&:username).sort
     end
+
+    should "remove associated user_characters, user_items, and user_media on destroy" do
+      @test_user = FactoryBot.create(:user)
+      test_user_id = @test_user.id
+      @test_character = FactoryBot.create(:character)
+      @test_item = FactoryBot.create(:item)
+      @test_media = FactoryBot.create(:medium)
+      @uc = FactoryBot.create(:user_character, user: @test_user, character: @test_character)
+      @ui = FactoryBot.create(:user_item, user: @test_user, item: @test_item)
+      @um = FactoryBot.create(:user_medium, user: @test_user, medium: @test_media)
+      @test_user.destroy
+      @test_user.destroyed?
+      assert_nil UserCharacter.find_by(id: test_user_id)
+      assert_nil UserItem.find_by(id: test_user_id)
+      assert_nil UserMedium.find_by(id: test_user_id)
+    end
   end
   # test "the truth" do
   #   assert true
