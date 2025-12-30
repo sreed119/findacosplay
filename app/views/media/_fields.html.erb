@@ -1,2 +1,2 @@
 <%= f.input :name, label_html: { class: 'active' } %>
-<%= f.input :media_type, collection: Medium::MEDIA_TYPES, include_blank: true %>
+<%= f.input :media_type, collection: Medium::MEDIA_TYPES, include_blank: true, input_html: { class: 'browser-default' } %>

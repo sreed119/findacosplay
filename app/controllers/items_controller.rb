@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   def show
+    @is_saved = false
+    if current_user
+      @is_saved = current_user.items.exists?(@item.id)
+      @user_item = current_user.user_items.find_by(item_id: @item.id)
+    end
     @average = UserItem.where(item_id: @item.id).average(:rating)
     if @average
       @average = @average.round

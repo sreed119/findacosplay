@@ -3,7 +3,13 @@
         <h3><%= @medium.name %></h3><br />
         <b>Media Type: <%= @medium.media_type %></b><br />
 
-        <b><%= link_to 'Save This Media', new_user_medium_path(medium_id: @medium.id) %></b><br />
+        <% if @is_saved %>
+            <%= button_to user_medium_path(@user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
+                <b>Remove from Saves</b>
+            <% end %>
+        <% else %>
+            <b><%= button_to 'Save This Media', new_user_medium_path, method: :get, params: { medium_id: @medium.id }, class: 'waves-effect waves-pink btn' %></b><br />
+        <% end %>
     </div>
 </div>
 <%= render partial: "characters", locals: { characters: @characters } %>

@@ -2,14 +2,14 @@
   <div class="container">
     <ul class="left hide-on-med-and-down">
         <%# Users can see their account, items, media, and characters %>
-        <li><%= link_to 'Items', items_path %></li>
-        <li><%= link_to 'Characters', characters_path %></li>
-        <li><%= link_to 'Media', media_path %></li>
-        <li><%= link_to 'Manage Users', users_path %></li>
-        <li><%= link_to 'Account', user_path(current_user) %></li>
+        <li class="nav_item"><%= link_to 'Items', items_path %></li>
+        <li class="nav_item"><%= link_to 'Characters', characters_path %></li>
+        <li class="nav_item"><%= link_to 'Media', media_path %></li>
+        <li class="nav_item"><%= link_to 'Manage Users', users_path %></li>
+        <li class="nav_item"><%= link_to 'Account', user_path(current_user) %></li>
     </ul>
     <ul class="right">
-        <li><%= link_to 'Logout', logout_path %></li>
+        <li class="nav_item"><%= link_to 'Logout', logout_path %></li>
     </ul>
   </div>
 </nav>

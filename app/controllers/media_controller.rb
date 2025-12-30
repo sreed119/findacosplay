@@ -10,6 +10,11 @@ class MediaController < ApplicationController
 
   # GET /media/1
   def show
+    @is_saved = false
+    if current_user
+      @is_saved = current_user.media.exists?(@medium.id)
+      @user_medium = current_user.user_media.find_by(medium_id: @medium.id)
+    end
     @characters = @medium.characters.alphabetical
   end
 

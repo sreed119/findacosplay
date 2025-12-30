@@ -1,5 +1,5 @@
 <% if @user_media && @user_media.medium_id %>
-    <%= f.input :medium_id, collection: get_medium_options, include_blank: false, selected: @user_media.medium_id %>
+    <%= f.input :medium_id, collection: get_medium_options, include_blank: false, selected: @user_media.medium_id, input_html: { class: 'browser-default' } %>
 <% else %>
-    <%= f.input :medium_id, collection: get_medium_options, include_blank: true %>
+    <%= f.input :medium_id, collection: get_medium_options, include_blank: true, input_html: { class: 'browser-default' } %>
 <% end %>

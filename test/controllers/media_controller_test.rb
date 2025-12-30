@@ -34,6 +34,7 @@ class MediaControllerTest < ActionDispatch::IntegrationTest
   test "should show medium" do
     get medium_path(@medium)
     assert_response :success
+    assert_not_nil assigns(@is_saved)
   end
 
   test "should get edit" do

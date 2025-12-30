@@ -8,9 +8,13 @@ application up and running. -->
 - Ruby 3.1.4
 - Rails 7.2
 - PostgreSQL
+- JavaScript
+- Materialize SCSS
 
 ## How to Run
-Start the app by running `rails server` and stop the app with `Ctrl+C`
+- Download all necessary gems and libraries with `bundle install`
+- Create database with `rails db:create` and then `rails db:migrate`
+- Start the app by running `rails server` and stop the app with `Ctrl+C`
 
 <!-- Things you may want to cover:
 

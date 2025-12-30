@@ -36,6 +36,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   test "should show item" do
     get item_path(@item)
     assert_response :success
+    assert_not_nil assigns(@is_saved)
   end
 
   test "should get edit" do

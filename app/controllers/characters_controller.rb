@@ -10,6 +10,11 @@ class CharactersController < ApplicationController
 
   # GET /characters/1
   def show
+    @is_saved = false
+    if current_user
+      @is_saved = current_user.characters.exists?(@character.id)
+      @user_character = current_user.user_characters.find_by(character_id: @character.id)
+    end
     @added_items = @character.items.alphabetical
   end
 

@@ -22,12 +22,16 @@ html {
 
 #nav {
   background-color: var(--primary_background);
-  height: 50px;
+  height: 55px;
 }
 
 #nav ul a {
   color: var(--primary_text);
   font-size: 1.2rem;
+}
+
+.nav_item {
+    height: 55px;
 }
 
 #query {
@@ -199,6 +203,14 @@ input[type=text].search {
 }
 
 // CARDS
+.main-content {
+    margin: 50px;
+}
+
+.card {
+    margin: 20px;
+}
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #ffab00;
 }

@@ -5,7 +5,13 @@
         <b>Hair Color: <%= @character.hair_color %></b><br />
         <b>Eye Color: <%= @character.eye_color %></b><br />
 
-        <b><%= link_to 'Save This Character', new_user_character_path(character_id: @character.id) %></b><br />
+        <% if @is_saved %>
+            <%= button_to user_character_path(@user_character), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
+                <b>Remove from Saves</b>
+            <% end %>
+        <% else %>
+            <b><%= button_to 'Save This Character', new_user_character_path, method: :get, params: { character_id: @character.id }, class: 'waves-effect waves-pink btn' %></b><br />
+        <% end %>
     </div>
 </div>
 <%= render partial: "saved_items", locals: { added_items: @added_items } %>

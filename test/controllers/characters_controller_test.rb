@@ -34,6 +34,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   test "should show character" do
     get character_path(@character)
     assert_response :success
+    assert_not_nil assigns(@is_saved)
   end
 
   test "should get edit" do
