@@ -1,6 +1,7 @@
 class MediaController < ApplicationController
   before_action :set_media, only: [ :show, :edit, :update ]
   before_action :check_login, only: [ :new, :create, :edit, :update ]
+  authorize_resource
 
   # GET /media
   def index

@@ -1,6 +1,7 @@
 class UserMediaController < ApplicationController
   before_action :set_user_medium, only: [ :destroy ]
   before_action :check_login
+  authorize_resource
 
   # GET /user_media
   def index

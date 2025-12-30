@@ -6,6 +6,7 @@ require "./test/sets/user_media"
 require "./test/sets/user_characters"
 require "./test/sets/user_items"
 require "./test/sets/character_items"
+require "./test/sets/abilities"
 
 module Contexts
   include Contexts::Users
@@ -16,6 +17,7 @@ module Contexts
   include Contexts::UserCharacters
   include Contexts::UserItems
   include Contexts::CharacterItems
+  include Contexts::Abilities
 
   def create_all
     create_users

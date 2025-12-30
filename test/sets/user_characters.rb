@@ -6,5 +6,12 @@ module Contexts
       @steph_c3 = FactoryBot.create(:user_character, user: @u_steph, character: @c_sasuke)
       @larry_c1 = FactoryBot.create(:user_character, user: @u_larry, character: @c_luffy)
     end
+
+    def destroy_user_characters
+      @steph_c1.delete
+      @steph_c2.delete
+      @steph_c3.delete
+      @larry_c1.delete
+    end
   end
 end

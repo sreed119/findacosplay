@@ -1,6 +1,7 @@
 class CharacterItemsController < ApplicationController
   before_action :set_character_item, only: [ :destroy ]
   before_action :check_login
+  authorize_resource
 
   def new
     @character_item = CharacterItem.new

@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [ :show, :edit, :update ]
   before_action :check_login, only: [ :new, :create, :edit, :update ]
+  authorize_resource
 
   # GET /characters
   def index

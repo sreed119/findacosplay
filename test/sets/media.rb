@@ -6,5 +6,12 @@ module Contexts
       @splatoon = FactoryBot.create(:medium, name: "Splatoon", media_type: "game")
       @gravityfalls = FactoryBot.create(:medium, name: "Gravity Falls", media_type: "cartoon")
     end
+
+    def destroy_media
+      @gravityfalls.delete
+      @splatoon.delete
+      @onepiece.delete
+      @naruto.delete
+    end
   end
 end

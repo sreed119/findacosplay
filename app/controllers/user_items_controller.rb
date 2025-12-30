@@ -1,6 +1,7 @@
 class UserItemsController < ApplicationController
   before_action :set_user_item, only: [ :edit, :update, :destroy ]
   before_action :check_login
+  authorize_resource
 
   # GET /user_items
   def index

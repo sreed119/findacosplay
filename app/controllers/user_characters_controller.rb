@@ -1,5 +1,6 @@
 class UserCharactersController < ApplicationController
   before_action :set_user_character, only: [ :destroy ]
+  authorize_resource
 
   # GET /user_characters or /user_characters.json
   def index

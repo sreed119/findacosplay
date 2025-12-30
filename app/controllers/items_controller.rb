@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [ :show, :edit, :update, :destroy ]
   before_action :check_login, only: [ :new, :create, :edit, :update, :destroy ]
+  authorize_resource
 
   # GET /items
   def index

@@ -6,5 +6,12 @@ module Contexts
       @u_larry = FactoryBot.create(:user, username: "larry", email: "larry@andrew.cmu.edu")
       @u_vi = FactoryBot.create(:user, username: "vi", email: "vi@example.com")
     end
+
+    def destroy_users
+      @u_vi.delete
+      @u_larry.delete
+      @u_cata.delete
+      @u_steph.delete
+    end
   end
 end
