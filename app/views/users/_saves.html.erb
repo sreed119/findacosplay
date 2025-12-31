@@ -1,8 +1,10 @@
-<div class="card small">
-    <div class="card-content">
-        <h4>Saves</h4><br />
-        <b><%= link_to 'Saved Items', user_items_path %></b><br />
-        <b><%= link_to 'Saved Characters', user_characters_path %></b><br />
-        <b><%= link_to 'Saved Media', user_media_path %></b>
+<% if logged_in? && @user.username == current_user.username %>
+    <div class="card small">
+        <div class="card-content">
+            <h4>Saves</h4><br />
+            <b><%= link_to 'Items', user_items_path %></b><br />
+            <b><%= link_to 'Characters', user_characters_path %></b><br />
+            <b><%= link_to 'Media', user_media_path %></b>
+        </div>
     </div>
-</div>
+<% end %>
