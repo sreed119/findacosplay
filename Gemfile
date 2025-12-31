@@ -82,3 +82,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "react_on_rails", "= 16.1"
