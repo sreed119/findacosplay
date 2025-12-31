@@ -7,7 +7,9 @@
                 <th>Store</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th class="align_center">Options</th>
+                <% if logged_in? %>
+                    <th class="align_center">Options</th>
+                <% end %>
             </thead>
             <% for item in @items%>
                 <tr>
@@ -15,15 +17,17 @@
                     <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
                     <td>$<%= item.price %></td>
                     <td><%= item.category.capitalize %></td>
-                    <td class="align_center">
-                    <%= link_to edit_item_path(item) do %>
-                        <i class="material-icons">edit</i>
+                    <% if logged_in? %>
+                        <td class="align_center">
+                        <%= link_to edit_item_path(item) do %>
+                            <i class="material-icons">edit</i>
+                        <% end %>
+                        &nbsp;&nbsp;&nbsp;&nbsp; 
+                        <%= link_to(item_path(item), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                            <i class="material-icons">delete</i>
+                        <% end %>
+                        </td>
                     <% end %>
-                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                    <%= link_to(item_path(item), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-                        <i class="material-icons">delete</i>
-                    <% end %>
-                    </td>
                 </tr>
             <% end %>
         </table>

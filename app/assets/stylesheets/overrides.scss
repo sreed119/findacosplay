@@ -59,15 +59,28 @@ html {
   color: #800000;
 }
 
+// STICKY FOOTER LAYOUT
+body.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.page-wrapper main {
+  flex: 1;
+}
+
+body.page-wrapper #footer-wrapper {
+  flex-shrink: 0;
+}
+
 // FOOTER
 #footer {
   background-color: var(--primary_background);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 20px;
   margin-bottom: 0px;
   color: var(--primary_text);
   line-height: 2rem;
-  position: relative;
 }
 
 #footer a {
@@ -113,6 +126,17 @@ th.align_center {
 }
 
 // BUTTONS
+.trash_button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.trash_icon {
+  color: #049BE5;
+}
+
 .btn {
   background-color: var(--primary_text);
   color: var(--primary_background);

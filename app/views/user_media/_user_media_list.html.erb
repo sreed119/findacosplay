@@ -1,25 +1,29 @@
-<div class="card">
-    <div class="card-content">
-        <h4>Saved Media</h4>
-        <table class="striped-highlight">
-            <thead>
-                <th>Name</th>
-                <th>Media Type</th>
-                <th>Options</th>
-            </thead>
-            <% for user_medium in @user_media%>
-                <tr>
-                    <td><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></td>
-                    <td><%= user_medium.medium.media_type.capitalize %></td>
-                    <td>
-                    <%= link_to(user_medium_path(user_medium), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you wish to delete this information?' }) do %>
-                        <i class="material-icons">delete</i>
-                    <% end %>
-                    </td>
-                </tr>
-            <% end %>
-        </table>
-        <br />
-        <%# Paginate if turns out to work correctly %>
+<% if @user_media.any? %>
+    <div class="card">
+        <div class="card-content">
+            <h4>Saved Media</h4>
+            <table class="striped-highlight">
+                <thead>
+                    <th>Name</th>
+                    <th>Media Type</th>
+                    <th>Options</th>
+                </thead>
+                <% for user_medium in @user_media%>
+                    <tr>
+                        <td><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></td>
+                        <td><%= user_medium.medium.media_type.capitalize %></td>
+                        <td>
+                        <%= button_to user_medium_path(user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
+                            <i class="material-icons trash_icon">delete</i>
+                        <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+            <br />
+            <%# Paginate if turns out to work correctly %>
+        </div>
     </div>
-</div>
+<% else %>
+    <h4>You have no saved media yet! :0</h4>
+<% end %>

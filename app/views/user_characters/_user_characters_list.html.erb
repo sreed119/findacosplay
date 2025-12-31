@@ -1,25 +1,29 @@
-<div class="card">
-    <div class="card-content">
-        <h4>Saved Characters</h4>
-        <table class="striped-highlight">
-            <thead>
-                <th>Name</th>
-                <th>Media</th>
-                <th>Options</th>
-            </thead>
-            <% for user_character in @user_characters%>
-                <tr>
-                    <td><%= link_to "#{user_character.character.name}", character_path(user_character.character) %></td>
-                    <td><%= user_character.character.medium.name %></td>
-                    <td>
-                    <%= link_to(user_character_path(user_character), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you wish to delete this information?' }) do %>
-                        <i class="material-icons">delete</i>
-                    <% end %>
-                    </td>
-                </tr>
-            <% end %>
-        </table>
-        <br />
-        <%# Paginate if turns out to work correctly %>
+<% if @user_characters.any? %>
+    <div class="card">
+        <div class="card-content">
+            <h4>Saved Characters</h4>
+            <table class="striped-highlight">
+                <thead>
+                    <th>Name</th>
+                    <th>Media</th>
+                    <th>Options</th>
+                </thead>
+                <% for user_character in @user_characters%>
+                    <tr>
+                        <td><%= link_to "#{user_character.character.name}", character_path(user_character.character) %></td>
+                        <td><%= user_character.character.medium.name %></td>
+                        <td>
+                        <%= button_to user_character_path(user_character), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
+                            <i class="material-icons trash_icon">delete</i>
+                        <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+            <br />
+            <%# Paginate if turns out to work correctly %>
+        </div>
     </div>
-</div>
+<% else %>
+    <h4>You have no saved characters yet! :0</h4>
+<% end %>

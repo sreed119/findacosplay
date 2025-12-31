@@ -18,7 +18,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="page-wrapper">
     <header>
       <!-- Partials for the topbar and navigation -->
       <%= render :partial => "partials/topbar" %>
@@ -45,6 +45,8 @@
       </div>
     </main>
 
-    <%= render :partial => "partials/footer" %>
+    <footer id="footer-wrapper">
+      <%= render :partial => "partials/footer" %>
+    </footer>
   </body>
 </html>

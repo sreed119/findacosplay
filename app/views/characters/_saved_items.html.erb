@@ -1,19 +1,31 @@
-<div class="card">
-    <div class="card-content">
-        <h3>Cosplay Items</h3>
-        <table class="striped-highlight">
-            <thead>
-                <th>Name</th>
-                <th>Store</th>
-                <th>Price</th>
-            </thead>
-            <% for item in added_items %>
-                <tr>
-                    <td><%= link_to "#{item.name}", item_path(item) %></td>
-                    <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
-                    <td>$<%= item.price %></td>
-                </tr>
-            <% end %>
-        </table>
+<% if added_items.any? %>
+    <div class="card">
+        <div class="card-content">
+            <h3>Cosplay Items</h3>
+            <table class="striped-highlight">
+                <thead>
+                    <th>Name</th>
+                    <th>Store</th>
+                    <th>Price</th>
+                    <% if logged_in? %>
+                        <th>Options</th>
+                    <% end %>
+                </thead>
+                <% for item in added_items %>
+                    <tr>
+                        <td><%= link_to "#{item.name}", item_path(item) %></td>
+                        <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
+                        <td>$<%= item.price %></td>
+                        <%if logged_in? %>
+                            <td>
+                            <%= button_to character_item_path(item.character_item_id), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
+                                <i class="material-icons trash_icon">delete</i>
+                            <% end %>
+                            </td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
     </div>
-</div>
+<% end %>
