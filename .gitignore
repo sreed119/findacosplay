@@ -38,3 +38,10 @@
 /coverage/*
 coverage/.resultset.json
 coverage/index.html
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
