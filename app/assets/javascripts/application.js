@@ -1,6 +1,10 @@
+//= require jquery
+//= require jquery_ujs
+//= require materialize
+
 // Flash fade
 $(function() {
    $('.alert-box').fadeIn('normal', function() {
-      $(this).delay(3700).fadeOut();
+      $(this).delay(2000).fadeOut();
    });
 });

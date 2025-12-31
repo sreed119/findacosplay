@@ -15,8 +15,7 @@ class CharactersController < ApplicationController
       @is_saved = current_user.characters.exists?(@character.id)
       @user_character = current_user.user_characters.find_by(character_id: @character.id)
     end
-    @added_items = @character.items.joins(:character_items).select("items.*, character_items.id as character_item_id").alphabetical
-    # @added_items = @character.character_items.includes(:item).joins(:item).merge(Item.alphabetical)
+    @added_items = @character.items.joins(:character_items).distinct.select("items.*, character_items.id as character_item_id").alphabetical
   end
 
   # GET /characters/new
