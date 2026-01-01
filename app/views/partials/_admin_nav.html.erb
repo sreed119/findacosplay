@@ -1,15 +1,25 @@
 <nav id="nav">
-  <div class="container">
+  <div class="container nav-container">
     <ul class="left hide-on-med-and-down">
         <%# Users can see their account, items, media, and characters %>
         <li class="nav_item"><%= link_to 'Items', items_path %></li>
         <li class="nav_item"><%= link_to 'Characters', characters_path %></li>
         <li class="nav_item"><%= link_to 'Media', media_path %></li>
         <li class="nav_item"><%= link_to 'Manage Users', users_path %></li>
-        <li class="nav_item"><%= link_to 'Account', user_path(current_user) %></li>
     </ul>
     <ul class="right">
-        <li class="nav_item"><%= link_to 'Logout', logout_path %></li>
+        <div class="dropdown">
+          <li class="dropdown_btn nav_item" id="dropdown_trigger">Account
+            <i class="material-icons" id="dropdown_caret">arrow_drop_down</i>
+          </li>
+          <div class="dropdown_content">
+            <li id="profile_tab"><%= link_to 'My Profile', user_path(current_user), class: "dropdown_link" %></li>
+            <li><%= link_to 'Saved Items', user_items_path, class: "dropdown_link" %></li>
+            <li><%= link_to 'Saved Characters', user_characters_path, class: "dropdown_link" %></li>
+            <li><%= link_to 'Saved Media', user_media_path, class: "dropdown_link" %></li>
+            <li id="logout_tab"><%= link_to 'Logout', logout_path, class: "dropdown_link" %></li>
+          </div>
+        </div>
     </ul>
   </div>
 </nav>
