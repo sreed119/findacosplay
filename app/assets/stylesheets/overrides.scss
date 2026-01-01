@@ -21,6 +21,12 @@ html {
   color: var(--primary_text);
 }
 
+#topbar_banner {
+  width: 30%;
+  margin: 0 auto;
+  display: block;
+}
+
 #nav {
   background-color: var(--primary_background);
   height: 55px;
@@ -428,4 +434,25 @@ li.address {
 .btn.waves-pink:hover, a.btn.waves-pink:hover {
   background-color: #eb6e98; /* darker pink on hover */
   color: #ffffff;
+}
+
+// ABOUT ME ADJUSTMENTS
+#cureSkyImg {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#side_note {
+  color: #858585;
+}
+.about_text {
+  display: inline-block;
+  width: 500px;
+}
+#about_me_photo {
+  float: right;
+  margin-left: 15px;
+  width: 200px;
+  display: inline;
 }

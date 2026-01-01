@@ -1,5 +1,5 @@
 <div class="row valign-wrapper" id="topbar">
-    <h1><%= link_to "Find a Cosplay <3", home_path %></h1>
-
-
+    <%= link_to home_path do %>
+        <%= image_tag "banner.jpg", alt: "Find a Cosplay banner", id: "topbar_banner" %>
+    <% end %>
 </div>
