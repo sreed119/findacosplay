@@ -16,6 +16,23 @@ $("#hamburger-toggle").on("click", function(event){
    toggleMenu();
 });
 
+function toggleDropdown() {
+   var y = document.getElementById("dropdown_content");
+   var trigger = document.getElementById("dropdown_trigger");
+   if (y.style.display === "block") {
+      trigger.style.backgroundColor = "#8ac5f2";
+      y.style.display = "none";
+   } else {
+      y.style.display = "block";
+      trigger.style.backgroundColor = "#7DB1DA";
+   }
+   console.log("she works!");
+}
+
+$("#dropdown_trigger").on("click", function(event){
+   toggleDropdown();
+});
+
 
 // Flash fade
 $(function() {

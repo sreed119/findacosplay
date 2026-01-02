@@ -96,7 +96,7 @@ html {
   margin: 0;
 }
 
-.dropdown_content {
+#dropdown_content {
   display: none;
   position: absolute;
   margin-top: 55px;
@@ -106,7 +106,7 @@ html {
   z-index: 1;
 }
 
-.dropdown_content li {
+#dropdown_content li {
   line-height: 50px;
   float: none;
   background-color: #ffffff;
@@ -116,7 +116,7 @@ html {
   list-style: none;
 }
 
-#nav .dropdown_content li a {
+#nav #dropdown_content li a {
   color: var(--primary_text);
   font-size: 14px;
   display: block;
@@ -126,7 +126,7 @@ html {
   padding-top: 0px;
 }
 
-.dropdown:hover .dropdown_content {
+.dropdown:hover #dropdown_content {
   display: block;
 }
 
