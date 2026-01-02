@@ -42,17 +42,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_path(@user), params: { user: { username: @user.username, email: "updated@example.com", password: "secret", password_confirmation: "secret", role: @user.role, profile_picture: @user.profile_picture } }
+    patch user_path(@user), params: { user: { username: @user.username, email: "updated@example.com", password: "secret", password_confirmation: "secret", role: @user.role } }
     assert_redirected_to user_path(@user)
 
-    patch user_path(@user), params: { user: { username: @user.username, email: "bad!! $%@example.com", password: "secret", password_confirmation: "secret", role: @user.role, profile_picture: @user.profile_picture } }
+    patch user_path(@user), params: { user: { username: @user.username, email: "bad!! $%@example.com", password: "secret", password_confirmation: "secret", role: @user.role } }
     assert_template :edit
   end
 
   test "non-admin should not update role" do
     logout_now
     login_as(:user)
-    patch user_path(@user), params: { user: { username: @user.username, email: "updated@example.com", password: "secret", password_confirmation: "secret", profile_picture: @user.profile_picture } }
+    patch user_path(@user), params: { user: { username: @user.username, email: "updated@example.com", password: "secret", password_confirmation: "secret" } }
     assert_redirected_to user_path(@user)
     logout_now
     login_as(:admin)
