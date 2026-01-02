@@ -1,5 +1,5 @@
 <% if logged_in? && @user.username == current_user.username %>
-    <div class="card small">
+    <div class="card small hide-on-med-and-down">
         <div class="card-content">
             <h4>Saves</h4><br />
             <b><%= link_to 'Items', user_items_path %></b><br />

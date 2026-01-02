@@ -51,6 +51,31 @@ html {
   overflow: hidden;
 }
 
+#hamburger-container {
+  background-color: #f2aac2;
+  margin-top: 0px;
+}
+
+#hamburger-content {
+  display: none;
+  left: 0;
+  margin: 55px;
+  background-color: #f2aac2;
+  width: 100%;
+  margin-top: 0px;
+}
+
+#hamburger-toggle {
+  background: var(--primary_background);
+  display: block;
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-item {
+  color: #000000;
+}
+
 .dropdown {
   float: left;
   overflow: hidden;

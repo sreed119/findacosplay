@@ -7,6 +7,9 @@
         <li class="nav_item"><%= link_to 'Media', media_path %></li>
         <li class="nav_item"><%= link_to "Create an Account", new_user_path %></li>
     </ul>
+    <ul class="hide-on-large-only">
+        <li class="nav_item" id="hamburger-toggle"><i class="material-icons">menu</i></li>
+    </ul>
     <ul class="right">
       <li class="nav_item">
         <%= link_to 'Login', login_path %>
@@ -14,3 +17,11 @@
     </ul>
   </div>
 </nav>
+<ul class="hide-on-large-only" id="hamburger-container">
+  <div class="hamburger-content hide-on-large-only" id="hamburger-content">
+      <li class="nav_item"><%= link_to 'Items', items_path, class: "hamburger-item" %></li>
+      <li class="nav_item"><%= link_to 'Characters', characters_path, class: "hamburger-item" %></li>
+      <li class="nav_item"><%= link_to 'Media', media_path, class: "hamburger-item" %></li>
+      <li class="nav_item"><%= link_to "Create an Account", new_user_path, class: "hamburger-item" %></li>
+  </div>
+</ul>
