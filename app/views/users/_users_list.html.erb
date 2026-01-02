@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-content">
-        <h3>All Users</h3>
+        <h2>All Users</h2>
         <ul class="collection">
             <% for user in @users %>
                 <% if logged_in? && user.username == current_user.username %>

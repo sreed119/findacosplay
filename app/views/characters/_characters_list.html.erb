@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-content">
-        <h3>Characters</h3>
-        <table class="striped-highlight">
+        <h4>Characters</h4>
+        <table class="striped-highlight table">
             <thead>
                 <th>Name</th>
                 <th>Media</th>
                 <% if logged_in? %>
-                    <th class="align_center">Options</th>
+                    <th>Options</th>
                 <% end %>
             </thead>
             <% for character in @characters%>
@@ -14,13 +14,9 @@
                     <td><%= link_to "#{character.name}", character_path(character) %></td>
                     <td><%= link_to "#{character.medium.name}", medium_path(character.medium) %></td>
                     <% if logged_in? %>
-                        <td class="align_center">
+                        <td>
                         <%= link_to edit_character_path(character) do %>
                             <i class="material-icons">edit</i>
-                        <% end %>
-                        &nbsp;&nbsp;&nbsp;&nbsp; 
-                        <%= link_to(character_path(character), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-                            <i class="material-icons">delete</i>
                         <% end %>
                         </td>
                     <% end %>

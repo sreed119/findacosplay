@@ -208,6 +208,10 @@ body.page-wrapper #footer-wrapper {
 }
 
 // TABLES
+.table {
+  margin-right: 10px;
+}
+
 table.striped > tbody > tr:nth-child(odd) {
   background-color: #fff;
 }
@@ -454,6 +458,7 @@ li.address {
 .btn.waves-pink, a.btn.waves-pink {
   background-color: #f48fb1; /* pink */
   color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .btn.waves-pink:hover, a.btn.waves-pink:hover {
@@ -473,11 +478,11 @@ li.address {
 }
 .about_text {
   display: inline-block;
-  width: 500px;
+  width: 60%;
 }
 #about_me_photo {
   float: right;
   margin-left: 15px;
-  width: 200px;
+  width: 25%;
   display: inline;
 }

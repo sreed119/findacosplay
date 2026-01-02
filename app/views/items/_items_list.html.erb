@@ -1,14 +1,14 @@
 <div class="card">
     <div class="card-content">
-        <h3>Items</h3>
-        <table class="striped-highlight">
+        <h4>Items</h4>
+        <table class="striped-highlight table">
             <thead>
                 <th>Name</th>
                 <th>Store</th>
                 <th>Price</th>
-                <th>Category</th>
+                <th class="hide-on-small-only">Category</th>
                 <% if logged_in? %>
-                    <th class="align_center">Options</th>
+                    <th class="align_center hide-on-med-and-down">Options</th>
                 <% end %>
             </thead>
             <% for item in @items%>
@@ -16,9 +16,9 @@
                     <td><%= link_to "#{item.name}", item_path(item) %></td>
                     <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
                     <td>$<%= item.price %></td>
-                    <td><%= item.category.capitalize %></td>
+                    <td class="hide-on-small-only"><%= item.category.capitalize %></td>
                     <% if logged_in? %>
-                        <td class="align_center">
+                        <td class="align_center hide-on-med-and-down">
                         <%= link_to edit_item_path(item) do %>
                             <i class="material-icons">edit</i>
                         <% end %>
