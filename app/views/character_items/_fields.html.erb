@@ -1,7 +1,7 @@
 <% if @character_item && @character_item.item_id %>
     <%= f.input :item_id, collection: get_item_options, include_blank: false, selected: @character_item.item_id, input_html: { class: 'browser-default' } %>
-    <%= f.input :character_id, collection: get_character_item_options(@character_item.item_id), include_blank: true, input_html: { class: 'browser-default' } %>
+    <%= f.input :character_id, collection: get_character_item_options(@character_item.item_id), include_blank: true, input_html: { class: 'browser-default responsive_search' }, placeholder: "Select a character to add this item to..." %>
 <% else %>
     <%= f.input :item_id, collection: get_item_options, include_blank: true, input_html: { class: 'browser-default' } %>
-    <%= f.input :character_id, collection: get_character_item_options, include_blank: true, input_html: { class: 'browser-default' } %>
+    <%= f.input :character_id, collection: get_character_item_options, include_blank: true, input_html: { class: 'browser-default responsive_search'}, placeholder: "Select a character to add this item to..." %>
 <% end %>

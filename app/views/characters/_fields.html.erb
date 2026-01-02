@@ -1,5 +1,5 @@
 <%= f.input :name, label_html: { class: 'active' } %>
-<%= f.input :medium_id, collection: get_media_options, include_blank: true, input_html: { class: 'browser-default' } %>
+<%= f.input :medium_id, collection: get_media_options, include_blank: true, input_html: { class: 'browser-default responsive_search' }, placeholder: "Select the media this character is from..." %>
 <%= f.input :image, label_html: { class: 'active' } %>
 <%= f.input :hair_length, collection: Character::HAIR_LENGTHS, include_blank: true, input_html: { class: 'browser-default' } %>
 <%= f.input :hair_color, label_html: { class: 'active' } %>
