@@ -1,5 +1,6 @@
 <div class="card">
     <div class="card-content">
+        <%= image_tag @character.image %>
         <h4><%= @character.name %> (<%= link_to "#{@character.medium.name}", medium_path(@character.medium) %>)</h4><br />
         <b>Hair Length: <%= @character.hair_length %></b><br />
         <b>Hair Color: <%= @character.hair_color %></b><br />
