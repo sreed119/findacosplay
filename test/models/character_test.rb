@@ -59,14 +59,14 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
     should "show that scope exists for searching characters by term" do
-      assert_equal [ "Nami", "Naruto Uzumaki", "Sasuke Uchiha", "Whitebeard" ], Character.search("A").map(&:name)
-      assert_equal [ "Nami", "Naruto Uzumaki" ], Character.search("Na").map(&:name)
+      assert_equal [ "Nami", "Naruto Uzumaki", "Sasuke Uchiha", "Whitebeard" ], Character.search("A").map(&:name).sort
+      assert_equal [ "Nami", "Naruto Uzumaki" ], Character.search("Na").map(&:name).sort
       assert_equal [ "Monkey D. Luffy" ], Character.search("Luffy").map(&:name)
     end
 
     should "show that scope exists for filtering characters by medium" do
       assert_equal [ "Naruto Uzumaki", "Sasuke Uchiha" ], Character.for_medium(@naruto.id).map(&:name).sort
-      assert_equal [ "Monkey D. Luffy", "Nami", "Whitebeard" ], Character.for_medium(@onepiece.id).map(&:name)
+      assert_equal [ "Monkey D. Luffy", "Nami", "Whitebeard" ], Character.for_medium(@onepiece.id).map(&:name).sort
     end
 
     should "show that scope exists for filtering characters by hair length" do

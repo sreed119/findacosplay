@@ -55,7 +55,7 @@ class ItemTest < ActiveSupport::TestCase
     end
 
     should "show that scope exists for searching items by term" do
-      assert_equal [ "Splattershot", "Straw Hat" ], Item.search("at").map(&:name)
+      assert_equal [ "Splattershot", "Straw Hat" ], Item.search("at").map(&:name).sort
       assert_equal [ "Straw Hat" ], Item.search("Straw").map(&:name)
     end
 
