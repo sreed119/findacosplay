@@ -45,6 +45,11 @@ class MediumTest < ActiveSupport::TestCase
       assert_equal [ "Gravity Falls", "Naruto", "One Piece", "Splatoon" ], Medium.alphabetical.map(&:name)
     end
 
+    should "show that scope exists for filtering media by media type" do
+      assert_equal [ "Naruto", "One Piece" ], Medium.by_media_type("animanga").map(&:name)
+      assert_equal [ "Splatoon" ], Medium.by_media_type("game").map(&:name)
+    end
+
     should "show that scope exists for searching media by term" do
       assert_equal [ "Naruto", "One Piece", "Splatoon" ], Medium.search("N").map(&:name)
       assert_equal [ "One Piece", "Splatoon" ], Medium.search("On").map(&:name)

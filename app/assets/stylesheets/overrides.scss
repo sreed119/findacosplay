@@ -491,6 +491,23 @@ li.address {
   display: inline;
 }
 
+// FILTERS
+.filter_container {
+  margin: 10px;
+}
+
+.filter_title{
+  display: inline;
+}
+
+.filter_button {
+  margin: 10px;
+  padding: 5px;
+  background-color: #f7ea94;
+  color: var(--primary_text);
+  border-radius: 8px;
+}
+
 // UPLOAD BUTTON
 .upload_button {
   display: block;

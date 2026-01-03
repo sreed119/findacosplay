@@ -1,0 +1,36 @@
+<div class="filter_container">
+    <p class="filter_title">Filter by Hair Length: </p>
+    <% ["short", "bob", "medium", "long"].each do |hair_length| %>
+        <%= link_to hair_length.capitalize,
+            characters_path(request.query_parameters.merge(hair_length: hair_length)),
+            class: "filter_button" %>
+    <% end %>
+
+    <%= link_to "Clear Filter",
+        characters_path(request.query_parameters.except(:hair_length)),
+        class: "filter_button" %>
+</div>
+<div class="filter_container">
+    <p class="filter_title">Filter by Hair Color: </p>
+    <% ["Black", "Orange", "Green", "Yellow"].each do |color| %>
+    <%= link_to color.capitalize,
+        characters_path(request.query_parameters.merge(hair_color: color)),
+        class: "filter_button" %>
+    <% end %>
+
+    <%= link_to "Clear Filter",
+        characters_path(request.query_parameters.except(:hair_color)),
+        class: "filter_button" %>
+</div>
+<div class="filter_container">
+    <p class="filter_title">Filter by Eye Color: </p>
+    <% ["Brown", "Blue", "Yellow"].each do |color| %>
+    <%= link_to color.capitalize,
+        characters_path(request.query_parameters.merge(eye_color: color)),
+        class: "filter_button" %>
+    <% end %>
+
+    <%= link_to "Clear Filter",
+        characters_path(request.query_parameters.except(:eye_color)),
+        class: "filter_button" %>
+</div>

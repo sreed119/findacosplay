@@ -6,6 +6,9 @@
     <% if logged_in? and not_save %>
     <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
     <% end %>
+    <% if filters %>
+        <%= render partial: "#{filter_page}", locals: {model_name: model_name} %>
+    <% end %>
 </div>
 
 <div>

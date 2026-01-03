@@ -1,0 +1,18 @@
+<div class="filter_container">
+    <p class="filter_title">Filter by Media Type: </p>
+    <% ["animanga", "game", "cartoon", "movie", "tv_show"].each do |media_type| %>
+        <% if media_type == "tv_show" %>
+            <%= link_to "TV Show",
+            media_path(request.query_parameters.merge(media_type: media_type)),
+            class: "filter_button" %>
+        <% else %>
+            <%= link_to media_type.capitalize,
+                media_path(request.query_parameters.merge(media_type: media_type)),
+                class: "filter_button" %>
+        <% end %>
+    <% end %>
+
+    <%= link_to "Clear Filter",
+        media_path(request.query_parameters.except(:media_type)),
+        class: "filter_button" %>
+</div>

@@ -15,6 +15,7 @@ class Medium < ApplicationRecord
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
+  scope :by_media_type, ->(type) { where(media_type: Medium.media_types[type]) }
   scope :search, ->(term) { where("media.name ILIKE ?", "%#{term}%").order("media.name") }
 
   # Validations
