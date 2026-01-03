@@ -505,6 +505,10 @@ li.address {
   max-height: 300px;
 }
 
+.inactive-img {
+  filter: grayscale(100%);
+}
+
 .list_head {
   padding-left: 0.75rem;
 }
@@ -518,5 +522,6 @@ li.address {
 }
 
 .purchased-field {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

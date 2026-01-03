@@ -2,14 +2,20 @@
 <div class="col s4">
     <div class="card small">
         <div class="card-image list_card">
-            <% if item.image.attached? %>
+            <% if item.image.attached? && item.active %>
                 <%= image_tag item.image, class: "list_img" %>
+            <% elsif item.image.attached? %>
+                <%= image_tag item.image, class: "list_img inactive-img" %>
             <% else %>
                 <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
             <% end %>
         </div>
         <div class="card-content">
-            <span class="card-title"><%= link_to "#{item.name}", item_path(item) %></span>
+            <% if item.active %>
+                <span class="card-title"><%= link_to "#{item.name}", item_path(item) %></span>
+            <% else %>
+                <span class="card-title"><%= link_to "#{item.name} (Inactive)", item_path(item) %></span>
+            <% end %>
             <p><%= link_to "#{item.store} (#{item.price})", item.item_link, target: "_blank" %></p>
         </div>
     </div>

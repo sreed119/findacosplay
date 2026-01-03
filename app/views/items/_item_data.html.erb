@@ -1,9 +1,13 @@
 <div class="card">
     <div class="card-content">
-        <% if @item.image.attached? %>
+        <% if @item.image.attached? && @item.active %>
             <%= image_tag @item.image, class: "data-img" %>
+            <h4><%= @item.name %></h4><br />
+        <% elsif @item.image.attached? %>
+            <%= image_tag @item.image, class: "data-img inactive-img" %>
+            <h4><%= @item.name %> (Inactive Item)</h4>
+            <p>This item is sold out or otherwise not currently available for purchase. Contact admin to have it's activity reinstated.</p><br />
         <% end %>
-        <h4><%= @item.name %></h4><br />
         <% if @average %>
             <% for i in 1..@average.to_i %>
                 <i class="material-icons">star</i>
