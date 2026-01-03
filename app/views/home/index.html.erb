@@ -6,4 +6,33 @@
         </p>
       </div>
     </div>
+
+    <p>&nbsp;</p>
+    <h4>Popular Items</h4>
+    <% for user_item in @recents %>
+      <div class="col s4">
+        <div class="card small">
+          <div class="card-image list_card">
+            <% if user_item.item.image.attached? && user_item.item.active %>
+              <%= image_tag user_item.item.image, class: "list_img" %>
+            <% elsif user_item.item.image.attached? %>
+              <%= image_tag user_item.item.image, class: "list_img inactive-img" %>
+            <% else %>
+              <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
+            <% end %>
+            <%= button_to user_item_path(user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
+              <i class="material-icons trash_icon">delete</i>
+            <% end %>
+          </div>
+          <div class="card-content">
+            <% if user_item.item.active %>
+              <span class="card-title"><%= link_to "#{user_item.item.name}", item_path(user_item.item) %></span>
+            <% else %>
+              <span class="card-title"><%= link_to "#{user_item.item.name} (Inactive)", item_path(user_item.item) %></span>
+            <% end %>
+            <p><%= link_to "#{user_item.item.store} (#{user_item.item.price})", user_item.item.item_link, target: "_blank" %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
 </div>
