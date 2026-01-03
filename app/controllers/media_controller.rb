@@ -6,6 +6,12 @@ class MediaController < ApplicationController
   # GET /media
   def index
     @media = Medium.alphabetical
+    if params[:query].present?
+      @media = @media.search(params[:query])
+    end
+    if params[:media_type].present?
+      @media = @media.by_media_type(params[:media_type])
+    end
   end
 
   # GET /media/1
@@ -53,6 +59,6 @@ class MediaController < ApplicationController
   end
 
   def media_params
-    params.require(:medium).permit(:name, :media_type)
+    params.require(:medium).permit(:name, :media_type, :image)
   end
 end

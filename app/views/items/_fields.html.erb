@@ -1,6 +1,11 @@
 <%= f.input :name, label_html: { class: 'active' } %>
 <%= f.input :store, label_html: { class: 'active' } %>
-<%= f.input :image, label_html: { class: 'active' } %>
+<%= f.input :image, label_html: { class: 'active' }, as: :file, input_html: { class: "upload_button", data_direct_upload_url: rails_direct_uploads_url } %>
 <%= f.input :item_link, label_html: { class: 'active' } %>
 <%= f.input :price, label_html: { class: 'active' } %>
 <%= f.input :category, collection: Item::CATEGORIES, include_blank: true, input_html: { class: 'browser-default' } %>
+<%# Materialize seemed to not work for this element so custom styling was needed %>
+<div class="purchased-field">
+  <label for="visible_checkbox2" class="purchased-label">Active</label>
+  <%= f.input :active, label: false, input_html: { id: "visible_checkbox2" } %>
+</div>

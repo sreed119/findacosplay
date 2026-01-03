@@ -1,6 +1,13 @@
 <div class="card">
     <div class="card-content">
-        <h4><%= @item.name %></h4><br />
+        <% if @item.image.attached? && @item.active %>
+            <%= image_tag @item.image, class: "data-img" %>
+            <h4><%= @item.name %></h4><br />
+        <% elsif @item.image.attached? %>
+            <%= image_tag @item.image, class: "data-img inactive-img" %>
+            <h4><%= @item.name %> (Inactive Item)</h4>
+            <p>This item is sold out or otherwise not currently available for purchase. Contact admin to have it's activity reinstated.</p><br />
+        <% end %>
         <% if @average %>
             <% for i in 1..@average.to_i %>
                 <i class="material-icons">star</i>
@@ -21,6 +28,11 @@
             <%= button_to user_item_path(@user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
                 <b>Remove from Saves</b>
             <% end %>
+            <% if @user_item.purchased %>
+                <%= link_to edit_user_item_path(@user_item), class: 'waves-effect waves-pink btn btn-alert' do %>
+                    <b>Add a Review</b>
+                <% end %>
+            <% end %>
         <% elsif logged_in? %>
             <b><%= button_to 'Save This Item', new_user_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
         <% end %>
@@ -34,3 +46,15 @@
         </div>
     </div>
 </div>
+<% if @reviews.any? %>
+    <div class="card">
+        <div class="card-content">
+            <h4>Reviews</h4>
+            <ul class="collection">
+                <% for review in @reviews %>
+                <li class="collection-item">"<%= review.review %>" - @<%= review.user.username %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>

@@ -9,6 +9,10 @@ html {
     // font-family: 'Josefin Sans', sans-serif;
 }
 
+main {
+  padding-top: 20px;
+}
+
 // TOP BAR AND NAV
 #topbar {
     background-color: var(--primary_background);
@@ -155,10 +159,6 @@ html {
 #dropdown_caret {
   display: inline;
   float: right;
-}
-
-#query {
-  color: #ffffff;
 }
 
 // FLASH MESSAGES
@@ -485,4 +485,115 @@ li.address {
   margin-left: 15px;
   width: 25%;
   display: inline;
+}
+
+// FILTERS
+.search_input {
+  color: var(--primary_text);
+}
+
+.search_wrapper {
+  width: 85%;
+  display: inline-block;
+}
+
+.search_wrapper_outer {
+  display: inline-block;
+  width: 85%;
+}
+
+.search_button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: var(--primary_background);
+  color: var(--primary_text);
+  border-radius: 8px;
+  border-style: none;
+}
+
+.clear_search {
+  display: inline-block;
+  padding: 5px;
+  background-color: #f7ea94;
+  color: var(--primary_text);
+  border-radius: 8px;
+}
+
+.filter_container {
+  margin: 10px;
+}
+
+.filter_title{
+  display: inline;
+}
+
+.filter_button {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #f7ea94;
+  color: var(--primary_text);
+  border-radius: 8px;
+}
+
+.filter_button.active {
+  border-style: solid;
+  border-color: #000000;
+}
+
+.no_match {
+  margin-top: 40px;
+  margin-left: 0.75rem;
+}
+
+// UPLOAD BUTTON
+.upload_button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+// IMAGES IN DATA CARDS
+.data-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 300px;
+}
+
+.inactive-img {
+  filter: grayscale(100%);
+}
+
+.img_card_wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-height: 175px;
+}
+
+.list_head {
+  padding-left: 0.75rem;
+}
+
+#visible_checkbox {
+  display: block;
+  opacity: 100;
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+
+#visible_checkbox2 {
+  display: block;
+  opacity: 100;
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+
+.purchased-field {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

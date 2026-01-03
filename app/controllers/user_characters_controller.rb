@@ -4,7 +4,7 @@ class UserCharactersController < ApplicationController
 
   # GET /user_characters or /user_characters.json
   def index
-    @user_characters = UserCharacter.all
+    @user_characters = UserCharacter.where(user_id: current_user.id)
   end
 
   # GET /user_characters/new

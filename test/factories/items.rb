@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence :name do |n|
       "Item #{n}"
     end
+    image { nil }
     category { "clothing" }
     sequence :item_link do |m|
       "https://www.example.com/item#{m}"

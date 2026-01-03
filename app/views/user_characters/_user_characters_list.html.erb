@@ -1,29 +1,27 @@
 <% if @user_characters.any? %>
-    <div class="card">
-        <div class="card-content">
-            <h4>Saved Characters</h4>
-            <table class="striped-highlight">
-                <thead>
-                    <th>Name</th>
-                    <th>Media</th>
-                    <th>Options</th>
-                </thead>
-                <% for user_character in @user_characters%>
-                    <tr>
-                        <td><%= link_to "#{user_character.character.name}", character_path(user_character.character) %></td>
-                        <td><%= user_character.character.medium.name %></td>
-                        <td>
-                        <%= button_to user_character_path(user_character), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
-                            <i class="material-icons trash_icon">delete</i>
+    <h4>Saved Characters</h4>
+    <% for user_character in @user_characters %>
+        <div class="col s4">
+            <div class="card small">
+                <div class="card-image list_card" style="overflow: visible;">
+                    <div class="img_card_wrapper">
+                        <% if user_character.character.image.attached? %>
+                            <%= image_tag user_character.character.image, class: "list_img" %>
+                        <% else %>
+                            <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
                         <% end %>
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
-            <br />
-            <%# Paginate if turns out to work correctly %>
+                    </div>
+                    <%= button_to user_character_path(user_character), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
+                            <i class="material-icons trash_icon">delete</i>
+                    <% end %>
+                </div>
+                <div class="card-content">
+                    <span class="card-title"><%= link_to "#{user_character.character.name}", character_path(user_character.character) %></span>
+                    <p><%= user_character.character.medium.name %></p>
+                </div>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% else %>
     <h4>You have no saved characters yet! :0</h4>
 <% end %>

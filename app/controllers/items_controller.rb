@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.alphabetical
+    if params[:query].present?
+      @items = @items.search(params[:query])
+    end
   end
 
   # GET /items/1
@@ -19,6 +22,7 @@ class ItemsController < ApplicationController
     if @average
       @average = @average.round
     end
+    @reviews = UserItem.where(item_id: @item.id).where.not(review: [ nil, "" ]).order(created_at: :desc)
   end
 
   # GET /items/new

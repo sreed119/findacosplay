@@ -1,6 +1,6 @@
 <%= f.input :name, label_html: { class: 'active' } %>
 <%= f.input :medium_id, collection: get_media_options, include_blank: true, input_html: { class: 'browser-default responsive_search' }, placeholder: "Select the media this character is from..." %>
-<%= f.input :image, label_html: { class: 'active' } %>
+<%= f.input :image, label_html: { class: 'active' }, as: :file, input_html: { class: "upload_button", data_direct_upload_url: rails_direct_uploads_url } %>
 <%= f.input :hair_length, collection: Character::HAIR_LENGTHS, include_blank: true, input_html: { class: 'browser-default' } %>
 <%= f.input :hair_color, label_html: { class: 'active' } %>
 <%= f.input :eye_color, label_html: { class: 'active' } %>

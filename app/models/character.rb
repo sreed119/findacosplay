@@ -7,12 +7,13 @@ class Character < ApplicationRecord
   has_many :character_items
   has_many :items, through: :character_items
   belongs_to :medium
+  has_one_attached :image
 
   # Enum for hair length
-  enum :hair_length, { short: 1, bob: 2, medium: 3, long: 4 }, scopes: true, suffix: true
+  enum :hair_length, { short: 1, bob: 2, medium: 3, long: 4, none: 5 }, scopes: true, suffix: true
 
   # For role dropdown
-  HAIR_LENGTHS = [ [ "Short", "short" ], [ "Bob", "bob" ], [ "Medium", "medium" ], [ "Long", "long" ] ]
+  HAIR_LENGTHS = [ [ "Short", "short" ], [ "Bob", "bob" ], [ "Medium", "medium" ], [ "Long", "long" ], [ "None", "none" ] ]
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
@@ -37,7 +38,9 @@ class Character < ApplicationRecord
 
   # Methods
   def hair_type
-    if hair_length == "bob"
+    if hair_length == "none"
+      "No hair"
+    elsif hair_length == "bob"
       hair_color + " " + hair_length
     else
       hair_length + ", " + hair_color + " hair"

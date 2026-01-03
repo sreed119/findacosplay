@@ -1,32 +1,33 @@
 <% if @user_items.any? %>
-    <div class="card">
-        <div class="card-content">
-            <h4>Saved Items</h4>
-            <table class="striped-highlight">
-                <thead>
-                    <th>Name</th>
-                    <th>Purchased</th>
-                    <th class="align_center">Options</th>
-                </thead>
-                <% for user_item in @user_items%>
-                    <tr>
-                        <td><%= link_to "#{user_item.item.name}", item_path(user_item.item) %></td>
-                        <td><%= user_item.purchased ? 'Yes' : 'No' %></td>
-                        <td class="align_center">
-                        <%= link_to edit_user_item_path(user_item) do %>
-                            <i class="material-icons">edit</i>
+    <h4>Saved Items</h4>
+    <% for user_item in @user_items %>
+        <div class="col s4">
+            <div class="card small">
+                <div class="card-image list_card" style="overflow: visible;">
+                    <div class="img_card_wrapper">
+                        <% if user_item.item.image.attached? && user_item.item.active %>
+                            <%= image_tag user_item.item.image, class: "list_img" %>
+                        <% elsif user_item.item.image.attached? %>
+                            <%= image_tag user_item.item.image, class: "list_img inactive-img" %>
+                        <% else %>
+                            <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
                         <% end %>
-                        <%= button_to user_item_path(user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
+                    </div>
+                    <%= button_to user_item_path(user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
                             <i class="material-icons trash_icon">delete</i>
-                        <% end %>
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
-            <br />
-            <%# Paginate if turns out to work correctly %>
+                    <% end %>
+                </div>
+                <div class="card-content">
+                    <% if user_item.item.active %>
+                        <span class="card-title"><%= link_to "#{user_item.item.name}", item_path(user_item.item) %></span>
+                    <% else %>
+                        <span class="card-title"><%= link_to "#{user_item.item.name} (Inactive)", item_path(user_item.item) %></span>
+                    <% end %>
+                    <p><%= link_to "#{user_item.item.store} ($#{user_item.item.price})", user_item.item.item_link, target: "_blank" %></p>
+                </div>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% else %>
     <h4>You have no saved items yet! :0</h4>
 <% end %>

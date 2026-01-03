@@ -14,8 +14,17 @@
   <% end %>
   
   <% if controller.respond_to?(:destroy) && can?(:destroy, object) %>
-    <%= link_to(eval("#{model_name}_path(object)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete #{opt}"}, class: 'waves-effect waves-pink btn btn-alert') do %>
-        &nbsp;<%= "Delete #{opt}" %>
+    <% if model_name == "user" && object.username == "admin"%>
+      <%# Prevent deletion of admin user %>
+      <p>Cannot delete original admin user. Contact dev if this is a mistake.</p>
+    <% elsif model_name == "item" && object.active %>
+      <%= link_to(eval("#{model_name}_path(object)"), method: 'delete', data: {confirm: "Are you sure you want to mark #{opt} as inactive?"}, class: 'waves-effect waves-pink btn btn-alert') do %>
+          &nbsp;<%= "Mark Inactive" %>
+      <% end %>
+    <% elsif model_name != "item" %>
+      <%= link_to(eval("#{model_name}_path(object)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete #{opt}"}, class: 'waves-effect waves-pink btn btn-alert') do %>
+          &nbsp;<%= "Delete #{opt}" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

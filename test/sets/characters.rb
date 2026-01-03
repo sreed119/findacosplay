@@ -5,6 +5,7 @@ module Contexts
       @c_sasuke = FactoryBot.create(:character, name: "Sasuke Uchiha", medium: @naruto, hair_length: 2, hair_color: "Black", eye_color: "Black")
       @c_luffy = FactoryBot.create(:character, name: "Monkey D. Luffy", medium: @onepiece)
       @c_nami = FactoryBot.create(:character, name: "Nami", medium: @onepiece, hair_length: 2, hair_color: "Orange")
+      @c_whitebeard = FactoryBot.create(:character, name: "Whitebeard", medium: @onepiece, hair_length: 5, hair_color: "")
     end
 
     def delete_characters
