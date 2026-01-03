@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence :name do |n|
       "Character#{n}"
     end
-    image { "http://example.com/character.jpg" }
+    image { nil }
     hair_length { 1 }
     hair_color { "Black" }
     eye_color { "Brown" }

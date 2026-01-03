@@ -20,14 +20,14 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create character" do
     assert_difference("Character.count") do
-      post characters_path, params: { character: { name: "New Character", medium_id: @medium.id, image: "pfp", hair_color: "Black", hair_length: "long", eye_color: "Brown" } }
+      post characters_path, params: { character: { name: "New Character", medium_id: @medium.id, image: nil, hair_color: "Black", hair_length: "long", eye_color: "Brown" } }
     end
     assert_equal "Character was successfully created in the system.", flash[:notice]
     assert_redirected_to character_path(assigns(:character))
   end
 
   test "should not create invalid character" do
-    post characters_path, params: { character: { name: nil, medium_id: @medium.id, image: "pfp", hair_color: "Black", hair_length: "long", eye_color: "Brown" } }
+    post characters_path, params: { character: { name: nil, medium_id: @medium.id, image: nil, hair_color: "Black", hair_length: "long", eye_color: "Brown" } }
     assert_template :new
   end
 
@@ -43,10 +43,10 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update character" do
-    patch character_path(@character), params: { character: { name: "Updated Character", medium_id: @medium.id, image: "newpfp", hair_color: "Blonde", hair_length: "short", eye_color: "Blue" } }
+    patch character_path(@character), params: { character: { name: "Updated Character", medium_id: @medium.id, hair_color: "Blonde", hair_length: "short", eye_color: "Blue" } }
     assert_redirected_to character_path(@character)
 
-    patch character_path(@character), params: { character: { name: nil, medium_id: @medium.id, image: "newpfp", hair_color: "Blonde", hair_length: "short", eye_color: "Blue" } }
+    patch character_path(@character), params: { character: { name: nil, medium_id: @medium.id, hair_color: "Blonde", hair_length: "short", eye_color: "Blue" } }
     assert_template :edit
   end
 end
