@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-content">
         <% if @character.image.attached? %>
-            <%= image_tag @character.image %>
+            <%= image_tag @character.image, class: "data-img" %>
         <% end %>
         <h4><%= @character.name %> (<%= link_to "#{@character.medium.name}", medium_path(@character.medium) %>)</h4><br />
         <b>Hair Length: <%= @character.hair_length %></b><br />
