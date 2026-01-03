@@ -1,3 +1,25 @@
+<div>
+   <%= form_with url: characters_path, method: :get, local: true, class: "search_wrapper_outer" do %>
+   <div class="search_wrapper">
+        <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Search characters...",
+            class: "search_input" %>
+   </div>
+
+    <%# Preserve existing filters when searching %>
+    <%= hidden_field_tag :hair_length, params[:hair_length] if params[:hair_length].present? %>
+    <%= hidden_field_tag :hair_color, params[:hair_color] if params[:hair_color].present? %>
+    <%= hidden_field_tag :eye_color, params[:eye_color] if params[:eye_color].present? %>
+
+    <%= submit_tag "Search", class: "search_button" %>
+    <% end %>
+
+    <%= link_to "Clear Search",
+        characters_path(request.query_parameters.except(:query)),
+        class: "clear_search" if params[:query].present? %> 
+</div>
+
 <div class="filter_container">
     <p class="filter_title">Filter by Hair Length: </p>
     <% ["short", "bob", "medium", "long"].each do |hair_length| %>

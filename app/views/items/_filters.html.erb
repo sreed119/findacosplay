@@ -1,0 +1,16 @@
+<div>
+   <%= form_with url: items_path, method: :get, local: true, class: "search_wrapper_outer" do %>
+   <div class="search_wrapper">
+        <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Search items...",
+            class: "search_input" %>
+   </div>
+
+    <%= submit_tag "Search", class: "search_button" %>
+    <% end %>
+
+    <%= link_to "Clear Search",
+        items_path(request.query_parameters.except(:query)),
+        class: "clear_search" if params[:query].present? %> 
+</div>

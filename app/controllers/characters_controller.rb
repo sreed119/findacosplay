@@ -6,6 +6,9 @@ class CharactersController < ApplicationController
   # GET /characters
   def index
     @characters = Character.alphabetical
+    if params[:query].present?
+      @characters = @characters.search(params[:query])
+    end
     if params[:hair_length].present?
       @characters = @characters.with_hair_length(params[:hair_length])
     end

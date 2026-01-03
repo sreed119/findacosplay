@@ -161,10 +161,6 @@ main {
   float: right;
 }
 
-#query {
-  color: #ffffff;
-}
-
 // FLASH MESSAGES
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
@@ -492,6 +488,38 @@ li.address {
 }
 
 // FILTERS
+.search_input {
+  color: var(--primary_text);
+}
+
+.search_wrapper {
+  width: 85%;
+  display: inline-block;
+}
+
+.search_wrapper_outer {
+  display: inline-block;
+  width: 85%;
+}
+
+.search_button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: var(--primary_background);
+  color: var(--primary_text);
+  border-radius: 8px;
+  border-style: none;
+}
+
+.clear_search {
+  display: inline-block;
+  padding: 5px;
+  background-color: #f7ea94;
+  color: var(--primary_text);
+  border-radius: 8px;
+}
+
 .filter_container {
   margin: 10px;
 }

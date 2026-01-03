@@ -6,6 +6,9 @@ class MediaController < ApplicationController
   # GET /media
   def index
     @media = Medium.alphabetical
+    if params[:query].present?
+      @media = @media.search(params[:query])
+    end
     if params[:media_type].present?
       @media = @media.by_media_type(params[:media_type])
     end
