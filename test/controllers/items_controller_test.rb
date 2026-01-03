@@ -22,14 +22,14 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item" do
     assert_difference("Item.count") do
-      post items_path, params: { item: { name: "New Item", store: "Store B", image: "pfp", item_link: "www.testlink.com", price: 39.99, category: "accessory", active: true } }
+      post items_path, params: { item: { name: "New Item", store: "Store B", item_link: "www.testlink.com", price: 39.99, category: "accessory", active: true } }
     end
     assert_equal "Item was successfully created in the system.", flash[:notice]
     assert_redirected_to item_path(assigns(:item))
   end
 
   test "should not create invalid item" do
-    post items_path, params: { item: { name: "Pearlescent Crown", store: "Store B", image: "pfp", item_link: "not a link!!", price: -10, category: "accessory", active: true } }
+    post items_path, params: { item: { name: "Pearlescent Crown", store: "Store B", item_link: "not a link!!", price: -10, category: "accessory", active: true } }
     assert_template :new
   end
 
@@ -45,10 +45,10 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item" do
-    patch item_path(@item), params: { item: { name: "Updated Item", store: "Store A", image: @item.image, item_link: @item.item_link, price: 34.99, category: @item.category, active: false } }
+    patch item_path(@item), params: { item: { name: "Updated Item", store: "Store A", item_link: @item.item_link, price: 34.99, category: @item.category, active: false } }
     assert_redirected_to item_path(@item)
 
-    patch item_path(@item), params: { item: { name: "Marinated Headphones", store: "Store A", image: @item.image, item_link: "not a link >:)", price: 34.99, category: @item.category, active: @item.active } }
+    patch item_path(@item), params: { item: { name: "Marinated Headphones", store: "Store A", item_link: "not a link >:)", price: 34.99, category: @item.category, active: @item.active } }
     assert_template :edit
   end
 

@@ -1,5 +1,8 @@
 <div class="card">
     <div class="card-content">
+        <% if @item.image.attached? %>
+            <%= image_tag @item.image %>
+        <% end %>
         <h4><%= @item.name %></h4><br />
         <% if @average %>
             <% for i in 1..@average.to_i %>

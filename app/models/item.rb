@@ -9,6 +9,7 @@ class Item < ApplicationRecord
 
   has_many :character_items
   has_many :characters, through: :character_items
+  has_one_attached :image
 
   # Enum for category
   enum :category, { clothing: 1, accessory: 2, prop: 3, wig: 4, contacts: 5, makeup: 6, hat: 7 }, scopes: true, suffix: true

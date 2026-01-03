@@ -1,5 +1,8 @@
 <div class="card">
     <div class="card-content">
+        <% if @medium.image.attached? %>
+            <%= image_tag @medium.image %>
+        <% end %>
         <h4><%= @medium.name %></h4><br />
         <b>Media Type: <%= @medium.media_type %></b><br />
         <p>&nbsp;</p>

@@ -5,6 +5,7 @@ class Medium < ApplicationRecord
   has_many :user_media
   has_many :users, through: :user_media
   has_many :characters
+  has_one_attached :image
 
   # Enum for media type
   enum :media_type, { animanga: 1, game: 3, cartoon: 4, movie: 5, tv_show: 6 }, scopes: true, suffix: true

@@ -53,6 +53,6 @@ class MediaController < ApplicationController
   end
 
   def media_params
-    params.require(:medium).permit(:name, :media_type)
+    params.require(:medium).permit(:name, :media_type, :image)
   end
 end

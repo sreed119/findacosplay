@@ -1,6 +1,6 @@
 <%= f.input :name, label_html: { class: 'active' } %>
 <%= f.input :store, label_html: { class: 'active' } %>
-<%= f.input :image, label_html: { class: 'active' }, as: :file %>
+<%= f.input :image, label_html: { class: 'active' }, as: :file, input_html: { class: "upload_button", data_direct_upload_url: rails_direct_uploads_url } %>
 <%= f.input :item_link, label_html: { class: 'active' } %>
 <%= f.input :price, label_html: { class: 'active' } %>
 <%= f.input :category, collection: Item::CATEGORIES, include_blank: true, input_html: { class: 'browser-default' } %>
