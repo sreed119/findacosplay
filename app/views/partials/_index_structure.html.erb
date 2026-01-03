@@ -1,3 +1,8 @@
+<!-- Add a button for new instances of object -->
+<% if logged_in? and not_save %>
+  <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
+<% end %>
+
 <div class="row">
   <div class="col s8">
     <!-- primary partial gets displayed here in main div -->
@@ -18,8 +23,3 @@
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>
   </div>
 </div>
-
-<!-- Add a button for new instances of object -->
-<% if logged_in? and not_save %>
-  <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
-<% end %>

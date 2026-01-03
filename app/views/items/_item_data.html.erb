@@ -24,6 +24,11 @@
             <%= button_to user_item_path(@user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
                 <b>Remove from Saves</b>
             <% end %>
+            <% if @user_item.purchased %>
+                <%= link_to edit_user_item_path(@user_item), class: 'waves-effect waves-pink btn btn-alert' do %>
+                    <b>Add a Review</b>
+                <% end %>
+            <% end %>
         <% elsif logged_in? %>
             <b><%= button_to 'Save This Item', new_user_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
         <% end %>

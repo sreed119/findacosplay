@@ -1,31 +1,20 @@
-<% if added_items.any? %>
-    <div class="card">
-        <div class="card-content">
-            <h4>Cosplay Items</h4>
-            <table class="striped-highlight">
-                <thead>
-                    <th>Name</th>
-                    <th>Store</th>
-                    <th>Price</th>
-                    <% if logged_in? %>
-                        <th>Options</th>
-                    <% end %>
-                </thead>
-                <% for item in added_items %>
-                    <tr>
-                        <td><%= link_to "#{item.name}", item_path(item) %></td>
-                        <td><%= link_to "#{item.store}", item.item_link, target: "_blank" %></td>
-                        <td>$<%= item.price %></td>
-                        <%if logged_in? %>
-                            <td>
-                            <%= button_to character_item_path(item.character_item_id), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
-                                <i class="material-icons trash_icon">delete</i>
-                            <% end %>
-                            </td>
-                        <% end %>
-                    </tr>
+<% if @added_items.any? %>
+    <h4>Items</h4>
+    <% for item in @added_items %>
+    <div class="col s4">
+        <div class="card small">
+            <div class="card-image list_card">
+                <% if item.image.attached? %>
+                    <%= image_tag item.image, class: "list_img" %>
+                <% else %>
+                    <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
                 <% end %>
-            </table>
+            </div>
+            <div class="card-content">
+                <span class="card-title"><%= link_to "#{item.name}", item_path(item) %></span>
+                <p><%= link_to "#{item.store} (#{item.price})", item.item_link, target: "_blank" %></p>
+            </div>
         </div>
     </div>
+    <% end %>
 <% end %>

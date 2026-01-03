@@ -1,29 +1,17 @@
-<div class="card">
-    <div class="card-content">
-        <h4>Media</h4>
-        <table class="striped-highlight table">
-            <thead>
-                <th>Name</th>
-                <th>Media Type</th>
-                <% if logged_in? %>
-                    <th>Options</th>
-                <% end %>
-            </thead>
-            <% for medium in @media%>
-                <tr>
-                    <td><%= link_to "#{medium.name}", medium_path(medium) %></td>
-                    <td><%= medium.media_type.capitalize %></td>
-                    <% if logged_in? %>
-                        <td>
-                        <%= link_to edit_medium_path(medium) do %>
-                            <i class="material-icons">edit</i>
-                        <% end %>
-                        </td>
-                    <% end %>
-                </tr>
+<% for medium in @media %>
+<div class="col s4">
+    <div class="card small">
+        <div class="card-image list_card">
+            <% if medium.image.attached? %>
+                <%= image_tag medium.image, class: "list_img" %>
+            <% else %>
+                <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
             <% end %>
-        </table>
-        <br />
-        <%# Paginate if turns out to work correctly %>
+        </div>
+        <div class="card-content">
+            <span class="card-title"><%= link_to "#{medium.name}", medium_path(medium) %></span>
+            <p><%= medium.media_type.capitalize %></p>
+        </div>
     </div>
 </div>
+<% end %>

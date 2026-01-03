@@ -1,29 +1,25 @@
 <% if @user_media.any? %>
-    <div class="card">
-        <div class="card-content">
-            <h4>Saved Media</h4>
-            <table class="striped-highlight">
-                <thead>
-                    <th>Name</th>
-                    <th>Media Type</th>
-                    <th>Options</th>
-                </thead>
-                <% for user_medium in @user_media%>
-                    <tr>
-                        <td><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></td>
-                        <td><%= user_medium.medium.media_type.capitalize %></td>
-                        <td>
-                        <%= button_to user_medium_path(user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "trash_button" do %>
-                            <i class="material-icons trash_icon">delete</i>
-                        <% end %>
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
-            <br />
-            <%# Paginate if turns out to work correctly %>
+    <h4>Saved Media</h4>
+    <% for user_medium in @user_media %>
+        <div class="col s4">
+            <div class="card small">
+                <div class="card-image list_card">
+                    <% if user_medium.medium.image.attached? %>
+                        <%= image_tag user_medium.medium.image, class: "list_img" %>
+                    <% else %>
+                        <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
+                    <% end %>
+                    <%= button_to user_medium_path(user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
+                        <i class="material-icons trash_icon">delete</i>
+                    <% end %>
+                </div>
+                <div class="card-content">
+                    <span><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></span>
+                    <p><%= user_medium.medium.media_type.capitalize %></p>
+                </div>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% else %>
     <h4>You have no saved media yet! :0</h4>
 <% end %>

@@ -9,6 +9,10 @@ html {
     // font-family: 'Josefin Sans', sans-serif;
 }
 
+main {
+  padding-top: 20px;
+}
+
 // TOP BAR AND NAV
 #topbar {
     background-color: var(--primary_background);
@@ -499,4 +503,8 @@ li.address {
   margin: 0 auto;
   max-width: 100%;
   max-height: 300px;
+}
+
+.list_head {
+  padding-left: 0.75rem;
 }

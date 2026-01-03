@@ -1,0 +1,14 @@
+<div class="list_head">
+    <% if not_save %>
+        <h4><%= model_name.pluralize.capitalize %></h4>
+    <% end %>
+    <!-- Add a button for new instances of object -->
+    <% if logged_in? and not_save %>
+    <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
+    <% end %>
+</div>
+
+<div>
+    <!-- primary partial gets displayed here in main div -->
+    <%= render partial: "#{primary}" %>
+</div>

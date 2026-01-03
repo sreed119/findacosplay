@@ -33,6 +33,10 @@ $("#dropdown_trigger").on("click", function(event){
    toggleDropdown();
 });
 
+$(document).ready(function(){
+    $('.halfway-fab').floatingActionButton();
+  });
+
 
 // Flash fade
 $(function() {
