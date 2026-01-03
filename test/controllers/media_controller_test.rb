@@ -8,7 +8,7 @@ class MediaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get media_path
+    get media_path, params: { query: "Existing", media_type: "game" }
     assert_response :success
     assert_not_nil assigns(:media)
   end

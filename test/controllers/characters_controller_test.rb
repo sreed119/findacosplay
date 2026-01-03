@@ -8,7 +8,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get characters_path
+    get characters_path, params: { query: "Test", hair_length: "long", hair_color: "Black", eye_color: "Blue" }
     assert_response :success
     assert_not_nil assigns(:characters)
   end

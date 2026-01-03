@@ -10,7 +10,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get items_path
+    get items_path, params: { query: "Existing" }
     assert_response :success
     assert_not_nil assigns(:items)
   end
