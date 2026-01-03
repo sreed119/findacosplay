@@ -508,6 +508,11 @@ li.address {
   border-radius: 8px;
 }
 
+.filter_button.active {
+  border-style: solid;
+  border-color: #000000;
+}
+
 .no_match {
   margin-top: 40px;
   margin-left: 0.75rem;

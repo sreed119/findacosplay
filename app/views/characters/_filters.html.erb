@@ -3,7 +3,7 @@
     <% ["short", "bob", "medium", "long"].each do |hair_length| %>
         <%= link_to hair_length.capitalize,
             characters_path(request.query_parameters.merge(hair_length: hair_length)),
-            class: "filter_button" %>
+            class: "filter_button #{'active' if params[:hair_length] == hair_length}" %>
     <% end %>
 
     <%= link_to "Clear Filter",
@@ -15,7 +15,7 @@
     <% ["Black", "Orange", "Green", "Yellow"].each do |color| %>
     <%= link_to color.capitalize,
         characters_path(request.query_parameters.merge(hair_color: color)),
-        class: "filter_button" %>
+        class: "filter_button #{'active' if params[:hair_color] == color}" %>
     <% end %>
 
     <%= link_to "Clear Filter",
@@ -27,7 +27,7 @@
     <% ["Brown", "Blue", "Yellow"].each do |color| %>
     <%= link_to color.capitalize,
         characters_path(request.query_parameters.merge(eye_color: color)),
-        class: "filter_button" %>
+        class: "filter_button #{'active' if params[:eye_color] == color}" %>
     <% end %>
 
     <%= link_to "Clear Filter",

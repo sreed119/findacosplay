@@ -4,11 +4,11 @@
         <% if media_type == "tv_show" %>
             <%= link_to "TV Show",
             media_path(request.query_parameters.merge(media_type: media_type)),
-            class: "filter_button" %>
+        class: "filter_button #{'active' if params[:media_type] == media_type}" %>
         <% else %>
             <%= link_to media_type.capitalize,
                 media_path(request.query_parameters.merge(media_type: media_type)),
-                class: "filter_button" %>
+        class: "filter_button #{'active' if params[:media_type] == media_type}" %>
         <% end %>
     <% end %>
 
