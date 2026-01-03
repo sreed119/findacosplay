@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
     if @average
       @average = @average.round
     end
+    @reviews = UserItem.where(item_id: @item.id).where.not(review: [ nil, "" ]).order(created_at: :desc)
   end
 
   # GET /items/new
