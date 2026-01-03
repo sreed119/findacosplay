@@ -3,12 +3,14 @@
     <% for user_character in @user_characters %>
         <div class="col s4">
             <div class="card small">
-                <div class="card-image list_card">
-                    <% if user_character.character.image.attached? %>
-                        <%= image_tag user_character.character.image, class: "list_img" %>
-                    <% else %>
-                        <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
-                    <% end %>
+                <div class="card-image list_card" style="overflow: visible;">
+                    <div class="img_card_wrapper">
+                        <% if user_character.character.image.attached? %>
+                            <%= image_tag user_character.character.image, class: "list_img" %>
+                        <% else %>
+                            <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
+                        <% end %>
+                    </div>
                     <%= button_to user_character_path(user_character), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
                             <i class="material-icons trash_icon">delete</i>
                     <% end %>

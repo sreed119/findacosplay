@@ -567,6 +567,12 @@ li.address {
   filter: grayscale(100%);
 }
 
+.img_card_wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-height: 175px;
+}
+
 .list_head {
   padding-left: 0.75rem;
 }
