@@ -8,7 +8,10 @@
     <%# new save with no set params has nothing preselected %>
     <%= f.input :item_id, collection: get_unsaved_items, include_blank: true, input_html: { class: 'browser-default' } %>
 <% end %>
-<%= f.input :purchased, label_html: { class: 'active' } %>
+<div class="purchased-field">
+  <label for="visible_checkbox" class="purchased-label">Purchased</label>
+  <%= f.input :purchased, label: false, input_html: { id: "visible_checkbox" } %>
+</div>
 <% if @user_item && @user_item.purchased %>
     <%= f.input :rating, collection: UserItem::RATINGS, include_blank: true, input_html: { class: 'browser-default' } %>
     <%= f.input :review, label_html: { class: 'active' } %>
