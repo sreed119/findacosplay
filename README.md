@@ -31,6 +31,7 @@ Run all unit tests with `rails test` or for more targeted testing:
 - Helpers : `rails test test/helpers`
 <br>
 <br>
+
 > Note: Simple Cov will report the test coverage in the command line and generate a file with a breakdown of the coverage for the most recent tests ran, viewable at `coverage/index.html`. The results should look like the following: 
 
 ![Simple Cov Output Example](app/assets/images/simple_cov_output_example.png)
