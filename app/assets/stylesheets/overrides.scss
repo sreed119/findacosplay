@@ -363,19 +363,52 @@ input[type=text].search {
   height: auto;
 }
 
-@media screen and (min-width: 551px) {
-  .card .card-content .card-title {
-    font-size: 1.5rem;
+@media screen and (min-width: 951px) {
+  .card.small .card-content .card-title {
+    font-size: 1.3rem;
+    line-height: 24px;
+  }
+
+  .col.s4 .card.small .card-content {
+    padding: 20px;
   }
 
   .card .card-content p {
+    font-size: 1rem;
+  }
+
+  .col.s4 .card.small .card-image {
+    max-height: 60%;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 551px) {
+  .card.small .card-content .card-title {
     font-size: 1.1rem;
+    line-height: 22px;
+  }
+
+  .card .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .col.s4 .card.small .card-image {
+    height: 60%;
+  }
+
+  .col.s4 .card.small .card-content {
+    padding: 15px;
+  }
+
+  .card .card-image img {
+    min-height: 100%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .card .card-content .card-title {
+  .card.small .card-content .card-title {
     font-size: 0.9rem;
+    line-height: 20px;
   }
 
   .card .card-content p {
@@ -383,15 +416,20 @@ input[type=text].search {
   }
 
   .s4 .card.small {
-    height: 240px;
+    height: 230px;
   }
 
   .col.s4 .card.small .card-image {
-    max-height: 50%;
+    height: 40%;
   }
 
   .col.s4 .card.small .card-content {
-    max-height: 50%;
+    max-height: 60%;
+    padding: 10px;
+  }
+
+  .card .card-image img {
+    min-height: 100%;
   }
 }
 

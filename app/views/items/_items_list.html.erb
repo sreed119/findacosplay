@@ -12,11 +12,11 @@
         </div>
         <div class="card-content">
             <% if item.active %>
-                <span class="card-title"><%= link_to "#{item.name}", item_path(item) %></span>
+                <span class="card-title"><%= link_to truncate(item.name, length: 22, omission: "..."), item_path(item) %></span>
             <% else %>
-                <span class="card-title"><%= link_to "#{item.name} (Inactive)", item_path(item) %></span>
+                <span class="card-title"><%= link_to "#{truncate(item.name, length: 11, omission: "...")} (Inactive)", item_path(item) %></span>
             <% end %>
-            <p><%= link_to "#{item.store} ($#{item.price})", item.item_link, target: "_blank" %></p>
+            <p><%= link_to "#{truncate(item.store, length: 15, omission: "...")} ($#{item.price})", item.item_link, target: "_blank" %></p>
         </div>
     </div>
 </div>
