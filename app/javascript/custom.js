@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    console.log("Custom JS loaded");
 
     window.toggleMenu = function() {
        var x = document.getElementById("hamburger-content");
