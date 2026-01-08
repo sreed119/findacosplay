@@ -31,6 +31,6 @@ test:
 production:
   <<: *default
   database: findacosplay_production
-  username: findacosplay
-  password: <%= ENV['FINDACOSPLAY_DATABASE_PASSWORD'] %>
+  # username: findacosplay
+  # password: <%= ENV['FINDACOSPLAY_DATABASE_PASSWORD'] %>
   # database: path/to/persistent/storage/production.sqlite3
