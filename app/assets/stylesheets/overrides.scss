@@ -354,6 +354,15 @@ input[type=text].search {
 }
 
 // CARDS
+.card .card-content .card-title {
+  font-size: 1.5rem;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-height: none;
+  height: auto;
+}
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #ffab00;
 }
