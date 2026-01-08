@@ -355,12 +355,44 @@ input[type=text].search {
 
 // CARDS
 .card .card-content .card-title {
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-height: none;
   height: auto;
+}
+
+@media screen and (min-width: 551px) {
+  .card .card-content .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card .card-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card .card-content .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card .card-content p {
+    font-size: 0.7rem;
+  }
+
+  .s4 .card.small {
+    height: 240px;
+  }
+
+  .col.s4 .card.small .card-image {
+    max-height: 50%;
+  }
+
+  .col.s4 .card.small .card-content {
+    max-height: 50%;
+  }
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {

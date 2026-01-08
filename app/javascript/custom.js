@@ -16,7 +16,6 @@ function toggleDropdown() {
 }
 
 function initializeCustom() {
-    console.log("custom.js initialized");
 
     document.querySelectorAll('.alert-box').forEach((el) => {
        el.style.display = 'block';
