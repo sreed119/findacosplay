@@ -1,55 +1,50 @@
-window.addEventListener('load', function() {
-    console.log("Custom JS loaded");
+import "tom-select"
 
-    window.toggleMenu = function() {
-       var x = document.getElementById("hamburger-content");
-       if (x && x.style.display === "block") {
-          x.style.display = "none";
-       } else if (x) {
-          x.style.display = "block";
-       }
-    }
+function toggleMenu() {
+   const x = document.getElementById("hamburger-content");
+   if (!x) return;
+   x.style.display = (x.style.display === "block") ? "none" : "block";
+}
 
-    window.toggleDropdown = function() {
-       var y = document.getElementById("dropdown_content");
-       var trigger = document.getElementById("dropdown_trigger");
-       if (y && y.style.display === "block") {
-          trigger.style.backgroundColor = "#8ac5f2";
-          y.style.display = "none";
-       } else if (y) {
-          y.style.display = "block";
-          trigger.style.backgroundColor = "#7DB1DA";
-       }
-    }
+function toggleDropdown() {
+   const y = document.getElementById("dropdown_content");
+   const trigger = document.getElementById("dropdown_trigger");
+   if (!y || !trigger) return;
+   const isOpen = y.style.display === "block";
+   trigger.style.backgroundColor = isOpen ? "#8ac5f2" : "#7DB1DA";
+   y.style.display = isOpen ? "none" : "block";
+}
 
-    // Flash fade
+function initializeCustom() {
+    console.log("custom.js initialized");
+
     document.querySelectorAll('.alert-box').forEach((el) => {
        el.style.display = 'block';
        setTimeout(() => { el.style.display = 'none'; }, 2000);
     });
     
-    // Click handlers
+    document.querySelectorAll('.responsive_search').forEach((el)=>{
+       if (el.tomselect) return; // already initialized
+       const settings = {
+          create: true,
+          sortField: {
+             field: "text",
+             direction: "asc"
+          }
+       };
+       new TomSelect(el, settings);
+    });
+
     const hamburgerToggle = document.getElementById("hamburger-toggle");
     if (hamburgerToggle) {
-       hamburgerToggle.addEventListener("click", window.toggleMenu);
+       hamburgerToggle.addEventListener("click", toggleMenu);
     }
 
     const dropdownTrigger = document.getElementById("dropdown_trigger");
     if (dropdownTrigger) {
-       dropdownTrigger.addEventListener("click", window.toggleDropdown);
+       dropdownTrigger.addEventListener("click", toggleDropdown);
     }
+}
 
-    // TomSelect
-    if (typeof TomSelect !== 'undefined') {
-       document.querySelectorAll('.responsive_search').forEach((el)=>{
-          let settings = {
-             create: true,
-             sortField: {
-                field: "text",
-                direction: "asc"
-             }
-          };
-          new TomSelect(el, settings);
-       });
-    }
-});
+document.addEventListener('turbo:load', initializeCustom);
+document.addEventListener('DOMContentLoaded', initializeCustom);
