@@ -12,10 +12,6 @@ function toggleMenu() {
    }
 }
 
-$("#hamburger-toggle").on("click", function(event){
-   toggleMenu();
-});
-
 function toggleDropdown() {
    var y = document.getElementById("dropdown_content");
    var trigger = document.getElementById("dropdown_trigger");
@@ -29,17 +25,18 @@ function toggleDropdown() {
    console.log("she works!");
 }
 
-$("#dropdown_trigger").on("click", function(event){
-   toggleDropdown();
-});
-
 $(document).ready(function(){
-    $('.halfway-fab').floatingActionButton();
-  });
+   $("#hamburger-toggle").on("click", function(event){
+      toggleMenu();
+   });
 
+   $("#dropdown_trigger").on("click", function(event){
+      toggleDropdown();
+   });
 
-// Flash fade
-$(function() {
+   $('.halfway-fab').floatingActionButton();
+
+   // Flash fade
    $('.alert-box').fadeIn('normal', function() {
       $(this).delay(2000).fadeOut();
    });
@@ -54,5 +51,4 @@ $(function() {
       };
       new TomSelect(el,settings);
    });
-
 });
