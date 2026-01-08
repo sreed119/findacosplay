@@ -12,10 +12,6 @@ function toggleMenu() {
    }
 }
 
-$("#hamburger-toggle").on("click", function(event){
-   toggleMenu();
-});
-
 function toggleDropdown() {
    var y = document.getElementById("dropdown_content");
    var trigger = document.getElementById("dropdown_trigger");
@@ -26,12 +22,7 @@ function toggleDropdown() {
       y.style.display = "block";
       trigger.style.backgroundColor = "#7DB1DA";
    }
-   console.log("she works!");
 }
-
-$("#dropdown_trigger").on("click", function(event){
-   toggleDropdown();
-});
 
 $(document).ready(function(){
     // Flash fade
@@ -49,4 +40,12 @@ $(document).ready(function(){
        };
        new TomSelect(el,settings);
     });
+
+    $("#hamburger-toggle").on("click", function(event){
+      toggleMenu();
+   });
+
+   $("#dropdown_trigger").on("click", function(event){
+      toggleDropdown();
+   });
 });
