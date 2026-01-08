@@ -522,10 +522,15 @@ li.address {
 
 .filter_container {
   margin: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
 }
 
 .filter_title{
-  display: inline;
+  display: inline-block;
+  margin-right: 10px;
+  white-space: normal;
 }
 
 .filter_button {
