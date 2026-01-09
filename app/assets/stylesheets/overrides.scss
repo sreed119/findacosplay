@@ -370,6 +370,10 @@ input[type=text].search {
   height: auto;
 }
 
+#user_card {
+  overflow-wrap: break-word;
+}
+
 @media screen and (min-width: 951px) {
   .card.small .card-content .card-title {
     font-size: 1.3rem;
@@ -583,6 +587,13 @@ li.address {
   display: inline-block;
 }
 
+@media screen and (max-width: 720px) {
+  .search_wrapper {
+  width: 70%;
+  display: inline-block;
+}
+}
+
 .search_wrapper_outer {
   display: inline-block;
   width: 85%;
@@ -638,10 +649,6 @@ li.address {
 .no_match {
   margin-top: 40px;
   margin-left: 0.75rem;
-}
-
-#item_stock_filter {
-  margin-left: 0;
 }
 
 // UPLOAD BUTTON
