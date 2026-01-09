@@ -48,7 +48,7 @@ gem "will_paginate"
 gem "materialize-sass", "0.100.2.1"
 gem "materialize-form", "1.0.8"
 gem "jquery-rails", "4.3.1"
-gem "jquery-ui-rails", "6.0.1"
+gem "jquery-ui-rails", "8.0.0"
 
 gem "dotenv-rails"
 
