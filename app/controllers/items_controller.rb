@@ -9,6 +9,12 @@ class ItemsController < ApplicationController
     if params[:query].present?
       @items = @items.search(params[:query])
     end
+    if params[:status].present?
+      @items = @items.active
+    end
+    if params[:category].present?
+      @items = @items.by_category(params[:category])
+    end
   end
 
   # GET /items/1

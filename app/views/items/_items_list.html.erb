@@ -1,23 +1,27 @@
-<% for item in @items %>
-<div class="col s4">
-    <div class="card small">
-        <div class="card-image list_card">
-            <% if item.image.attached? && item.active %>
-                <%= image_tag item.image, class: "list_img" %>
-            <% elsif item.image.attached? %>
-                <%= image_tag item.image, class: "list_img inactive-img" %>
-            <% else %>
-                <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
-            <% end %>
-        </div>
-        <div class="card-content">
-            <% if item.active %>
-                <span class="card-title"><%= link_to truncate(item.name, length: 22, omission: "..."), item_path(item) %></span>
-            <% else %>
-                <span class="card-title"><%= link_to "#{truncate(item.name, length: 11, omission: "...")} (Inactive)", item_path(item) %></span>
-            <% end %>
-            <p><%= link_to "#{truncate(item.store, length: 15, omission: "...")} ($#{item.price})", item.item_link, target: "_blank" %></p>
+<% if @items.any?%>
+    <% for item in @items %>
+    <div class="col s4">
+        <div class="card small">
+            <div class="card-image list_card">
+                <% if item.image.attached? && item.active %>
+                    <%= image_tag item.image, class: "list_img" %>
+                <% elsif item.image.attached? %>
+                    <%= image_tag item.image, class: "list_img inactive-img" %>
+                <% else %>
+                    <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
+                <% end %>
+            </div>
+            <div class="card-content">
+                <% if item.active %>
+                    <span class="card-title"><%= link_to truncate(item.name, length: 22, omission: "..."), item_path(item) %></span>
+                <% else %>
+                    <span class="card-title"><%= link_to "#{truncate(item.name, length: 11, omission: "...")} (Inactive)", item_path(item) %></span>
+                <% end %>
+                <p><%= link_to "#{truncate(item.store, length: 15, omission: "...")} ($#{item.price})", item.item_link, target: "_blank" %></p>
+            </div>
         </div>
     </div>
-</div>
+    <% end %>
+<% else %>
+    <h4 class="no_match">No results match this search, sorry!</h4>
 <% end %>

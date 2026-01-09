@@ -14,3 +14,24 @@
         items_path(request.query_parameters.except(:query)),
         class: "clear_search" if params[:query].present? %> 
 </div>
+<div class="filter_container">
+    <p class="filter_title">Filter by Item Type: </p>
+    <% ["clothing", "accessory", "prop", "wig", "contacts", "makeup", "hat"].each do |category| %>
+        <%= link_to category.capitalize,
+            items_path(request.query_parameters.merge(category: category)),
+            class: "filter_button #{'active' if params[:category] == category}" %>
+    <% end %>
+
+    <%= link_to "Clear Filter",
+        items_path(request.query_parameters.except(:category)),
+        class: "filter_button" %>
+</div>
+<div class="filter_container" id="item_stock_filter">
+    <%= link_to "Only In Stock Items",
+        items_path(request.query_parameters.merge(status: "active")),
+        class: "filter_button #{'active' if params[:status] == "active"}" %>
+
+    <%= link_to "Clear Filter",
+        items_path(request.query_parameters.except(:status)),
+        class: "filter_button" %>
+</div>

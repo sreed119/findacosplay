@@ -59,6 +59,12 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [ "Straw Hat" ], Item.search("Straw").map(&:name)
     end
 
+    should "show that scope exists for filtering items by category" do
+      assert_equal [ "Ninja Headband" ], Item.by_category("accessory").map(&:name)
+      assert_equal [ "Splattershot" ], Item.by_category("prop").map(&:name)
+      assert_equal [ "Straw Hat" ], Item.by_category("hat").map(&:name)
+    end
+
     should "show that there are two active items do" do
       assert_equal [ "Ninja Headband", "Straw Hat" ], Item.active.all.map(&:name).sort
     end
