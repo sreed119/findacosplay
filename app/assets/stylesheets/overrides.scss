@@ -31,6 +31,13 @@ main {
   display: block;
 }
 
+@media screen and (min-width: 1501px) {
+  #topbar {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
 #nav {
   background-color: var(--primary_background);
   height: 55px;
