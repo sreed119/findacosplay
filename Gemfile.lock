@@ -194,7 +194,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    minitest (5.20.0)
+    minitest (5.27.0)
     minitest-rails (7.2.0)
       minitest (~> 5.20)
       railties (>= 7.2.0, < 8.0.0)
@@ -447,7 +447,7 @@ DEPENDENCIES
   jquery-ui-rails (= 6.0.1)
   materialize-form (= 1.0.8)
   materialize-sass (= 0.100.2.1)
-  minitest (= 5.20)
+  minitest (= 5.27.0)
   minitest-rails (~> 7.2.0)
   minitest-reporters (= 1.7)
   pg
