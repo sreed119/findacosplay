@@ -16,7 +16,7 @@
                     <% end %>
                 </div>
                 <div class="card-content">
-                    <span><%= link_to "#{user_medium.medium.name}", medium_path(user_medium.medium) %></span>
+                    <span><%= link_to truncate(user_medium.medium.name, length: 22, omission: "..."), medium_path(user_medium.medium) %></span>
                     <p><%= user_medium.medium.media_type.capitalize %></p>
                 </div>
             </div>
