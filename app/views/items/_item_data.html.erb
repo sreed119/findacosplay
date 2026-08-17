@@ -52,24 +52,3 @@
         </div>
     </div>
 </div>
-<div class="card">
-    <div class="card-content">
-        <div class="list_head_row">
-            <h4>Reviews</h4>
-            <% if @is_saved && @user_item.purchased %>
-                <%= link_to edit_user_item_path(@user_item), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
-                    <i class="material-icons left">mode_edit</i>
-                <% end %>
-            <% end %>
-        </div>
-        <ul class="collection">
-            <% if @reviews.any? %>
-                <% for review in @reviews %>
-                <li class="collection-item">"<%= review.review %>" - @<%= review.user.username %></li>
-                <% end %>
-            <% else %>
-                <li class="collection-item"> There are no available reviews for the item at this time. Be the first to add one! </li>
-            <% end %>
-        </ul>
-    </div>
-</div>

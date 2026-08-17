@@ -4,7 +4,7 @@
         <b>Email: <%= @user.email %></b><br />
         <p>&nbsp;</p>
         <% if controller.respond_to?(:update) && can?(:update, @user) %>
-            <%= link_to edit_user_path(@user), class: 'btn-floating waves-effect waves-light blue lighten-2' do %>
+            <%= link_to edit_user_path(@user), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
                 <i class="material-icons left">mode_edit</i>
             <% end %>
         <% end %>

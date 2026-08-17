@@ -16,7 +16,7 @@
             <i class="material-icons" id="dropdown_caret">arrow_drop_down</i>
           </li>
           <div id="dropdown_content">
-            <li id="profile_tab"><%= link_to 'My Profile', user_path(current_user), class: "dropdown_link" %></li>
+            <li id="profile_tab"><%= link_to 'Profile', user_path(current_user), class: "dropdown_link" %></li>
             <li><%= link_to 'Saved Items', user_items_path, class: "dropdown_link" %></li>
             <li><%= link_to 'Saved Characters', user_characters_path, class: "dropdown_link" %></li>
             <li><%= link_to 'Saved Media', user_media_path, class: "dropdown_link" %></li>
