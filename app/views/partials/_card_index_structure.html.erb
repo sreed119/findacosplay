@@ -1,10 +1,11 @@
 <div class="list_head">
     <% if not_save %>
-        <h4><%= model_name.pluralize.capitalize %></h4>
-    <% end %>
-    <!-- Add a button for new instances of object -->
-    <% if logged_in? and not_save %>
-    <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
+        <div class="list_head_row">
+            <h4><%= model_name.pluralize.capitalize %></h4>
+            <% if logged_in? %>
+                <%= render :partial => 'partials/add_new_object', locals: {model_name: model_name} %>
+            <% end %>
+        </div>
     <% end %>
     <% if filters %>
         <%= render partial: "#{filter_page}", locals: {model_name: model_name} %>
