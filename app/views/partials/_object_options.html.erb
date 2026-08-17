@@ -2,7 +2,8 @@
 
 <div class="form-actions">
     <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-pink btn') do %>
-      &nbsp;Display All
+      <i class="material-icons left">chevron_left</i>
+      <%= "All #{model_name.pluralize.humanize}"%>
     <% end %>
     &nbsp;&nbsp;
   
