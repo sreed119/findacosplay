@@ -24,37 +24,50 @@
         <b>Price: $<%= @item.price %></b><br />
         <b>Category: <%= @item.category.capitalize %></b><br />
         <p>&nbsp;</p>
-        <% if @is_saved %>
-            <%= button_to user_item_path(@user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
-                <b>Remove from Saves</b>
-            <% end %>
-            <% if @user_item.purchased %>
-                <%= link_to edit_user_item_path(@user_item), class: 'waves-effect waves-pink btn btn-alert' do %>
-                    <b>Add a Review</b>
+        <div class="action-button-group">
+            <% if @is_saved %>
+                <%= button_to user_item_path(@user_item), method: :delete, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons">bookmark</i>
+                <% end %>
+            <% elsif logged_in? %>
+                <%= link_to new_user_item_path(item_id: @item.id), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons">bookmark_border</i>
                 <% end %>
             <% end %>
-        <% elsif logged_in? %>
-            <b><%= button_to 'Save This Item', new_user_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
-        <% end %>
-        <% if logged_in? %>
-            <p>&nbsp;</p>
-            <b><%= button_to 'Add this Item to a Character', new_character_item_path, method: :get, params: { item_id: @item.id }, class: 'waves-effect waves-pink btn' %></b><br />
-        <% end %>
+            <% if logged_in? %>
+                <%= button_to new_character_item_path, method: :get, params: { item_id: @item.id }, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons">person_add</i>
+                <% end %>
+            <% end %>
+            <% if controller.respond_to?(:update) && can?(:update, @item) %>
+                <%= link_to edit_item_path(@item), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons left">mode_edit</i>
+                <% end %>
+            <% end %>
+        </div>
+        <p>&nbsp;</p>
 
         <div class="card-action">
             <a href="<%= @item.item_link %>" target="_blank" class="blue-text">View in Store</a>
         </div>
     </div>
 </div>
-<% if @reviews.any? %>
-    <div class="card">
-        <div class="card-content">
-            <h4>Reviews</h4>
-            <ul class="collection">
+<div class="card">
+    <div class="card-content">
+        <h4>Reviews</h4>
+        <% if @is_saved && @user_item.purchased %>
+            <%= link_to edit_user_item_path(@user_item), class: 'waves-effect waves-pink btn btn-alert' do %>
+                <b>Add or Edit Your Review</b>
+            <% end %>
+        <% end %>
+        <ul class="collection">
+            <% if @reviews.any? %>
                 <% for review in @reviews %>
                 <li class="collection-item">"<%= review.review %>" - @<%= review.user.username %></li>
                 <% end %>
-            </ul>
-        </div>
+            <% else %>
+                <li class="collection-item"> There are no available reviews for the item at this time. Be the first to add one! </li>
+            <% end %>
+        </ul>
     </div>
-<% end %>
+</div>

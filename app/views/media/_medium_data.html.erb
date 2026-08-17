@@ -6,12 +6,21 @@
         <h4><%= @medium.name %></h4><br />
         <b>Media Type: <%= @medium.media_type.capitalize %></b><br />
         <p>&nbsp;</p>
-        <% if @is_saved %>
-            <%= button_to user_medium_path(@user_medium), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: 'waves-effect waves-pink btn btn-alert' do %>
-                <b>Remove from Saves</b>
+        <div class="action-button-group">
+            <% if @is_saved %>
+                <%= button_to user_medium_path(@user_medium), method: :delete, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons">bookmark</i>
+                <% end %>
+            <% elsif logged_in? %>
+                <%= link_to new_user_medium_path(medium_id: @medium.id), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons">bookmark_border</i>
+                <% end %>
             <% end %>
-        <% elsif logged_in? %>
-            <b><%= button_to 'Save This Media', new_user_medium_path, method: :get, params: { medium_id: @medium.id }, class: 'waves-effect waves-pink btn' %></b><br />
-        <% end %>
+            <% if controller.respond_to?(:update) && can?(:update, @medium) %>
+                <%= link_to edit_medium_path(@medium), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                    <i class="material-icons left">mode_edit</i>
+                <% end %>
+            <% end %>
+        </div>
     </div>
 </div>

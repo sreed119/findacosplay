@@ -219,6 +219,18 @@ body.page-wrapper #footer-wrapper {
   margin-right: 10px;
 }
 
+.action-button-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.action-button-group form,
+.action-button-group a {
+  margin: 0;
+}
+
 table.striped > tbody > tr:nth-child(odd) {
   background-color: #fff;
 }

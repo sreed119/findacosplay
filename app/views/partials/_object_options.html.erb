@@ -7,13 +7,6 @@
     <% end %>
     &nbsp;&nbsp;
   
-  <% if controller.respond_to?(:update) && can?(:update, object) %>
-    <%= link_to(eval("edit_#{model_name}_path(object)"), class: 'waves-effect waves-pink btn') do %>
-        &nbsp;<%= "Edit #{opt}" %>
-    <% end %>
-    &nbsp;&nbsp;
-  <% end %>
-  
   <% if controller.respond_to?(:destroy) && can?(:destroy, object) %>
     <% if model_name == "user" && object.username == "admin"%>
       <%# Prevent deletion of admin user %>
