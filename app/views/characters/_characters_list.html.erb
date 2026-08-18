@@ -16,6 +16,10 @@
         </div>
     </div>
     <% end %>
+
+    <div class="col s12 center-align">
+        <%= will_paginate @characters, params: { query: params[:query], hair_length: params[:hair_length], hair_color: params[:hair_color], eye_color: params[:eye_color] }, previous_label: "←", next_label: "→" %>
+    </div>
 <% else %>
     <h4 class="no_match">No results match this search, sorry!</h4>
 <% end %>

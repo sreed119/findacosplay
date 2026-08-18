@@ -16,6 +16,10 @@
         </div>
     </div>
     <% end %>
+
+    <div class="col s12 center-align">
+        <%= will_paginate @media, params: { query: params[:query], media_type: params[:media_type] }, previous_label: "←", next_label: "→" %>
+    </div>
 <% else %>
     <h4 class="no_match">No results match this search, sorry!</h4>
 <% end %>

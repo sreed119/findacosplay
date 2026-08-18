@@ -22,6 +22,10 @@
         </div>
     </div>
     <% end %>
+
+    <div class="col s12 center-align">
+        <%= will_paginate @items, params: { query: params[:query], status: params[:status], category: params[:category] }, previous_label: "←", next_label: "→" %>
+    </div>
 <% else %>
     <h4 class="no_match">No results match this search, sorry!</h4>
 <% end %>

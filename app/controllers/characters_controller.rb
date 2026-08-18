@@ -18,6 +18,8 @@ class CharactersController < ApplicationController
     if params[:eye_color].present?
       @characters = @characters.with_eye_color(params[:eye_color])
     end
+
+    @characters = @characters.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /characters/1

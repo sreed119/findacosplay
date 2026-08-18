@@ -12,6 +12,8 @@ class MediaController < ApplicationController
     if params[:media_type].present?
       @media = @media.by_media_type(params[:media_type])
     end
+
+    @media = @media.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /media/1

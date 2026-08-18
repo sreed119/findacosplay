@@ -15,6 +15,8 @@ class ItemsController < ApplicationController
     if params[:category].present?
       @items = @items.by_category(params[:category])
     end
+
+    @items = @items.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /items/1
