@@ -18,12 +18,12 @@ class UserItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create user_item" do
+  test "should create user_item from the current item page" do
     assert_difference("UserItem.count") do
       post user_items_path, params: { user_item: { item_id: @item2.id, purchased: false, rating: nil, review: nil } }
     end
 
-    assert_redirected_to user_items_path
+    assert_redirected_to item_path(@item2)
   end
 
   test "should not create invalid user_item" do
@@ -31,7 +31,7 @@ class UserItemsControllerTest < ActionDispatch::IntegrationTest
       post user_items_path, params: { user_item: { item_id: @item1.id, purchased: false, rating: nil, review: nil } }
     end
 
-    assert_response :success
+    assert_redirected_to item_path(@item1)
   end
 
   test "should get edit" do
