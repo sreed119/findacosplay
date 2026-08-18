@@ -13,8 +13,8 @@
                             <%= image_tag "photo_placeholder.jpg", class: "list_img" %>
                         <% end %>
                     </div>
-                    <%= button_to user_item_path(user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light red" do %>
-                            <i class="material-icons trash_icon">delete</i>
+                    <%= button_to user_item_path(user_item), method: :delete, data: { turbo_confirm: 'Are you sure you wish to delete this information?' }, class: "btn-floating halfway-fab waves-effect waves-light pink lighten-3" do %>
+                            <i class="material-icons trash_icon">bookmark</i>
                     <% end %>
                 </div>
                 <div class="card-content">
