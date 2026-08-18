@@ -1,37 +1,29 @@
-<div>
-   <%= form_with url: media_path, method: :get, local: true, class: "search_wrapper_outer" do %>
-   <div class="search_wrapper">
-        <%= text_field_tag :query,
-            params[:query],
-            placeholder: "Search media...",
-            class: "search_input"%>
-   </div>
-
-    <%# Preserve existing filters when searching %>
-    <%= hidden_field_tag :media_type, params[:media_type] if params[:media_type].present? %>
-
-    <%= submit_tag "Search", class: "search_button" %>
+<div class="filter_bar">
+    <%= form_with url: media_path, method: :get, local: true, class: "search_wrapper_outer" do %>
+    <div class="filter_row search_row">
+        <div class="search_wrapper">
+                <%= text_field_tag :query,
+                    params[:query],
+                    placeholder: "Search media...",
+                    class: "search_input"%>
+        </div>
+    </div>
+    <div class="filter_row filter_dropdowns">
+        <div class="filter_field">
+            <%= label_tag :media_type, "Media Type" %>
+            <%= select_tag :media_type,
+                options_for_select([
+                    ["Any", ""],
+                    ["Animanga", "animanga"],
+                    ["Game", "game"],
+                    ["Cartoon", "cartoon"],
+                    ["Movie", "movie"],
+                    ["TV Show", "tv_show"]
+                ], params[:media_type]),
+                include_blank: false,
+                class: "browser-default filter_select",
+                onchange: "this.form.submit()" %>
+        </div>
+    </div>
     <% end %>
-
-    <%= link_to "Clear Search",
-        media_path(request.query_parameters.except(:query)),
-        class: "clear_search" if params[:query].present? %> 
-</div>
-<div class="filter_container">
-    <p class="filter_title">Filter by Media Type: </p>
-    <% ["animanga", "game", "cartoon", "movie", "tv_show"].each do |media_type| %>
-        <% if media_type == "tv_show" %>
-            <%= link_to "TV Show",
-            media_path(request.query_parameters.merge(media_type: media_type)),
-        class: "filter_button #{'active' if params[:media_type] == media_type}" %>
-        <% else %>
-            <%= link_to media_type.capitalize,
-                media_path(request.query_parameters.merge(media_type: media_type)),
-        class: "filter_button #{'active' if params[:media_type] == media_type}" %>
-        <% end %>
-    <% end %>
-
-    <%= link_to "Clear Filter",
-        media_path(request.query_parameters.except(:media_type)),
-        class: "filter_button" %>
 </div>

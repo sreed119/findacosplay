@@ -1,58 +1,72 @@
-<div>
-   <%= form_with url: characters_path, method: :get, local: true, class: "search_wrapper_outer" do %>
-   <div class="search_wrapper">
+<div class="filter_bar">
+  <%= form_with url: characters_path, method: :get, local: true, class: "search_filter_form" do %>
+    <div class="filter_row search_row">
+      <div class="search_wrapper">
         <%= text_field_tag :query,
             params[:query],
             placeholder: "Search characters...",
             class: "search_input" %>
-   </div>
+      </div>
+    </div>
 
-    <%# Preserve existing filters when searching %>
-    <%= hidden_field_tag :hair_length, params[:hair_length] if params[:hair_length].present? %>
-    <%= hidden_field_tag :hair_color, params[:hair_color] if params[:hair_color].present? %>
-    <%= hidden_field_tag :eye_color, params[:eye_color] if params[:eye_color].present? %>
+    <div class="filter_row filter_dropdowns">
+      <div class="filter_field">
+        <%= label_tag :hair_length, "Hair Length" %>
+        <%= select_tag :hair_length,
+            options_for_select([
+              ["Any hair length", ""],
+              ["Short", "short"],
+              ["Bob", "bob"],
+              ["Medium", "medium"],
+              ["Long", "long"],
+              ["None", "none"]
+            ], params[:hair_length]),
+            include_blank: false,
+            class: "browser-default filter_select",
+            onchange: "this.form.submit()" %>
+      </div>
 
-    <%= submit_tag "Search", class: "search_button" %>
-    <% end %>
+      <div class="filter_field">
+        <%= label_tag :hair_color, "Hair Color" %>
+        <%= select_tag :hair_color,
+            options_for_select([
+              ["Any hair color", ""],
+              ["Black", "Black"],
+              ["Brown", "Brown"],
+              ["Red", "Red"],
+              ["Orange", "Orange"],
+              ["Yellow", "Yellow"],
+              ["Green", "Green"],
+              ["Blue", "Blue"],
+              ["Purple", "Purple"],
+              ["Pink", "Pink"],
+              ["White", "White"]
+            ], params[:hair_color]),
+            include_blank: false,
+            class: "browser-default filter_select",
+            onchange: "this.form.submit()" %>
+      </div>
 
-    <%= link_to "Clear Search",
-        characters_path(request.query_parameters.except(:query)),
-        class: "clear_search" if params[:query].present? %> 
-</div>
-
-<div class="filter_container">
-    <p class="filter_title">Filter by Hair Length: </p>
-    <% ["short", "bob", "medium", "long", "none"].each do |hair_length| %>
-        <%= link_to hair_length.capitalize,
-            characters_path(request.query_parameters.merge(hair_length: hair_length)),
-            class: "filter_button #{'active' if params[:hair_length] == hair_length}" %>
-    <% end %>
-
-    <%= link_to "Clear Filter",
-        characters_path(request.query_parameters.except(:hair_length)),
-        class: "filter_button" %>
-</div>
-<div class="filter_container">
-    <p class="filter_title">Filter by Hair Color: </p>
-    <% ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "White"].each do |color| %>
-    <%= link_to color.capitalize,
-        characters_path(request.query_parameters.merge(hair_color: color)),
-        class: "filter_button #{'active' if params[:hair_color] == color}" %>
-    <% end %>
-
-    <%= link_to "Clear Filter",
-        characters_path(request.query_parameters.except(:hair_color)),
-        class: "filter_button" %>
-</div>
-<div class="filter_container">
-    <p class="filter_title">Filter by Eye Color: </p>
-    <% ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "White"].each do |color| %>
-    <%= link_to color.capitalize,
-        characters_path(request.query_parameters.merge(eye_color: color)),
-        class: "filter_button #{'active' if params[:eye_color] == color}" %>
-    <% end %>
-
-    <%= link_to "Clear Filter",
-        characters_path(request.query_parameters.except(:eye_color)),
-        class: "filter_button" %>
+      <div class="filter_field">
+        <%= label_tag :eye_color, "Eye Color" %>
+        <%= select_tag :eye_color,
+            options_for_select([
+              ["Any eye color", ""],
+              ["Black", "Black"],
+              ["Brown", "Brown"],
+              ["Red", "Red"],
+              ["Orange", "Orange"],
+              ["Yellow", "Yellow"],
+              ["Green", "Green"],
+              ["Blue", "Blue"],
+              ["Purple", "Purple"],
+              ["Pink", "Pink"],
+              ["White", "White"]
+            ], params[:eye_color]),
+            include_blank: false,
+            class: "browser-default filter_select",
+            onchange: "this.form.submit()" %>
+      </div>
+    </div>
+  <% end %>
 </div>
