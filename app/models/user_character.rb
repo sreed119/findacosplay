@@ -17,7 +17,7 @@ class UserCharacter < ApplicationRecord
     return true if self.user_id.nil? || self.character_id.nil?
     if self.already_exists?
       character = Character.find_by(id: self.character_id)
-      errors.add(:character_id, "You've already saved #{character.name}!")
+      errors.add(:base, "You've already saved #{character.name}!")
     end
   end
 end

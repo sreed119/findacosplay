@@ -17,15 +17,16 @@ class UserMediaController < ApplicationController
     @user_medium.user = current_user
 
     if @user_medium.save
-      redirect_to user_media_path, notice: "Media was successfully added to your saves."
+      redirect_to medium_path(@user_medium.medium), notice: "Media was successfully added to your saves."
     else
-      render :new
+      medium = Medium.find_by(id: @user_medium.medium_id)
+      redirect_to(medium ? medium_path(medium) : user_media_path, alert: @user_medium.errors.full_messages.to_sentence)
     end
   end
 
   def destroy
     @user_medium.destroy
-    redirect_to user_media_path, notice: "Saved media was successfully removed."
+    redirect_to(params[:return_to] || user_media_path, notice: "Saved media was successfully removed.")
   end
 
   private

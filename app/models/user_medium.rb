@@ -17,7 +17,7 @@ class UserMedium < ApplicationRecord
     return true if self.user_id.nil? || self.medium_id.nil?
     if self.already_exists?
       medium = Medium.find_by(id: self.medium_id)
-      errors.add(:medium_id, "You've already saved #{medium.name}!")
+      errors.add(:base, "You've already saved #{medium.name}!")
     end
   end
 end

@@ -20,17 +20,18 @@ class UserCharactersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create user_character" do
+  test "should create user_character from the current character page" do
     assert_difference("UserCharacter.count") do
-      post user_characters_path, params: { user_character: { character_id: @character2.id, user: @user } }
+      post user_characters_path, params: { user_character: { character_id: @character2.id } }
     end
     assert_equal "Character was successfully added to your saves.", flash[:notice]
-    assert_redirected_to user_characters_path
+    assert_redirected_to character_path(@character2)
   end
 
-  test "should not create invalid user_character" do
-    post user_characters_path, params: { user_character: { character_id: @character.id, user: @user } }
-    assert_template :new
+  test "should not create invalid user_character and redirect back" do
+    post user_characters_path, params: { user_character: { character_id: @character.id } }
+    assert_equal "You've already saved #{@character.name}!", flash[:alert]
+    assert_redirected_to character_path(@character)
   end
 
   test "should destroy user_character" do

@@ -18,16 +18,17 @@ class UserCharactersController < ApplicationController
     @user_character.user = current_user
 
     if @user_character.save
-      redirect_to user_characters_path, notice: "Character was successfully added to your saves."
+      redirect_to character_path(@user_character.character), notice: "Character was successfully added to your saves."
     else
-      render :new
+      character = Character.find_by(id: @user_character.character_id)
+      redirect_to(character ? character_path(character) : user_characters_path, alert: @user_character.errors.full_messages.to_sentence)
     end
   end
 
   # DELETE /user_characters/1 or /user_characters/1.json
   def destroy
     @user_character.destroy
-    redirect_to user_characters_path, notice: "Saved character was successfully removed."
+    redirect_to(params[:return_to] || user_characters_path, notice: "Saved character was successfully removed.")
   end
 
   private

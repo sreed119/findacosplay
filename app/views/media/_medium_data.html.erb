@@ -8,11 +8,11 @@
         <p>&nbsp;</p>
         <div class="action-button-group">
             <% if @is_saved %>
-                <%= button_to user_medium_path(@user_medium), method: :delete, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                <%= button_to user_medium_path(@user_medium), method: :delete, params: { return_to: request.path }, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
                     <i class="material-icons">bookmark</i>
                 <% end %>
             <% elsif logged_in? %>
-                <%= link_to new_user_medium_path(medium_id: @medium.id), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
+                <%= button_to user_media_path, method: :post, params: { user_medium: { medium_id: @medium.id } }, class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
                     <i class="material-icons">bookmark_border</i>
                 <% end %>
             <% end %>

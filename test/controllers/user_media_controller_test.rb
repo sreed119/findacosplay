@@ -19,17 +19,18 @@ class UserMediaControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create user_medium" do
+  test "should create user_medium from the current medium page" do
     assert_difference("UserMedium.count") do
-      post user_media_path, params: { user_medium: { medium_id: @medium2.id, user_id: @user.id } }
+      post user_media_path, params: { user_medium: { medium_id: @medium2.id } }
     end
     assert_equal "Media was successfully added to your saves.", flash[:notice]
-    assert_redirected_to user_media_path
+    assert_redirected_to medium_path(@medium2)
   end
 
-  test "should not create invalid user_medium" do
-    post user_media_path, params: { user_medium: { medium_id: @medium.id, user_id: @user.id } }
-    assert_template :new
+  test "should not create invalid user_medium and redirect back" do
+    post user_media_path, params: { user_medium: { medium_id: @medium.id } }
+    assert_equal "You've already saved Test Medium!", flash[:alert]
+    assert_redirected_to medium_path(@medium)
   end
 
   test "should destroy user_medium" do
