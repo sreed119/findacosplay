@@ -15,6 +15,60 @@ function toggleDropdown() {
    y.style.display = isOpen ? "none" : "block";
 }
 
+function initializeHomeBannerCarousel() {
+   const carousel = document.querySelector('.home_banner_carousel');
+   if (!carousel) return;
+
+   const slides = Array.from(carousel.querySelectorAll('.home_banner_slide'));
+   const prevButton = carousel.querySelector('.home_banner_prev');
+   const nextButton = carousel.querySelector('.home_banner_next');
+   const dots = Array.from(carousel.querySelectorAll('.home_banner_dot'));
+
+   if (!slides.length) return;
+
+   let currentIndex = 0;
+   let autoRotate;
+
+   const updateDots = () => {
+      dots.forEach((dot, index) => {
+         dot.classList.toggle('is-active', index === currentIndex);
+      });
+   };
+
+   const showSlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+         slide.classList.toggle('is-active', slideIndex === currentIndex);
+      });
+      updateDots();
+   };
+
+   const startAutoRotate = () => {
+      clearInterval(autoRotate);
+      autoRotate = setInterval(() => showSlide(currentIndex + 1), 4000);
+   };
+
+   prevButton?.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+      startAutoRotate();
+   });
+
+   nextButton?.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+      startAutoRotate();
+   });
+
+   dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+         showSlide(Number(dot.dataset.slide));
+         startAutoRotate();
+      });
+   });
+
+   showSlide(0);
+   startAutoRotate();
+}
+
 function initializeCustom() {
 
     document.querySelectorAll('.alert-box').forEach((el) => {
@@ -33,6 +87,8 @@ function initializeCustom() {
        };
        new TomSelect(el, settings);
     });
+
+    initializeHomeBannerCarousel();
 
     const hamburgerToggle = document.getElementById("hamburger-toggle");
     if (hamburgerToggle) {

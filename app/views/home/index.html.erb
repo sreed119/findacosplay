@@ -1,10 +1,32 @@
 <div class="row">
     <h4>Welcome to Find a Cosplay</h4>
-    <div class="card">
-      <div class="card-content">
-        <p> Find a Cosplay, your favorite cosplay resource finder! :3</p>
-        <br>
-        <p>Sign In to edit our item, character, or media catalogues :P</p>
+
+    <div class="home_banner_carousel" aria-label="Featured cosplay banners">
+      <div class="home_banner_track">
+        <div class="home_banner_slide is-active">
+          <%= image_tag "FCBanner1.png", alt: "Find a Cosplay banner 1" %>
+        </div>
+        <div class="home_banner_slide">
+          <%= image_tag "FCBanner2.png", alt: "Find a Cosplay banner 2" %>
+        </div>
+        <div class="home_banner_slide">
+          <%= image_tag "FCBanner3.png", alt: "Find a Cosplay banner 3" %>
+        </div>
+      </div>
+
+      <div class="home_banner_controls" aria-label="Banner controls">
+        <button type="button" class="home_banner_prev" aria-label="Previous banner">
+          <i class="material-icons">chevron_left</i>
+        </button>
+        <button type="button" class="home_banner_next" aria-label="Next banner">
+          <i class="material-icons">chevron_right</i>
+        </button>
+      </div>
+
+      <div class="home_banner_dots" aria-label="Slide indicators">
+        <button type="button" class="home_banner_dot is-active" aria-label="Show slide 1" data-slide="0"></button>
+        <button type="button" class="home_banner_dot" aria-label="Show slide 2" data-slide="1"></button>
+        <button type="button" class="home_banner_dot" aria-label="Show slide 3" data-slide="2"></button>
       </div>
     </div>
 
