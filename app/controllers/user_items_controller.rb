@@ -17,9 +17,10 @@ class UserItemsController < ApplicationController
     @user_item.user = current_user
 
     if @user_item.save
-      redirect_to user_items_path, notice: "Item was successfully added to your saves."
+      redirect_to item_path(@user_item.item), notice: "Item was successfully added to your saves."
     else
-      render :new
+      item = Item.find_by(id: @user_item.item_id)
+      redirect_to(item ? item_path(item) : user_items_path, alert: @user_item.errors.full_messages.to_sentence)
     end
   end
 
@@ -36,7 +37,7 @@ class UserItemsController < ApplicationController
 
   def destroy
     @user_item.destroy
-    redirect_to user_items_path, notice: "Saved item was successfully removed."
+    redirect_to(params[:return_to] || user_items_path, notice: "Saved item was successfully removed.")
   end
 
   private
