@@ -6,6 +6,9 @@
             <li class="collection-item">Total Saves: <b><%= @total_saves %></b></li>
             <li class="collection-item">Item Catalogue: <b><%= @total_items %></b></li>
         </ul>
+        <p>&nbsp;</p>
         <%= bar_chart @user_data, title: "User Distribution", colors: ["#8ac5f2", "#ef94d0"] %>
+        <p>&nbsp;</p>
+        <%= line_chart @user_join_data, title: "User Signups", colors: ["#8ac5f2"] %>
     </div>
 </div>

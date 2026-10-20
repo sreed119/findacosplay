@@ -88,3 +88,5 @@ gem "image_processing", "~> 1.12"
 gem "aws-sdk-s3", "~> 1.114"
 
 gem "chartkick"
+
+gem "groupdate"

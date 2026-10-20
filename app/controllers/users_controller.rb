@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @regular_users = User.users.alphabetical
     @count = User.count
     @user_data = { "Admin" => User.admins.count, "Regular Users" => User.users.count }
+    @user_join_data = User.group_by_month(:created_at).count
     @total_saves = UserItem.count + UserCharacter.count + UserMedium.count
     @total_items = Item.count
   end

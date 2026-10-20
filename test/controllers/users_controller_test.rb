@@ -15,6 +15,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil assigns(:user_data)
     assert_not_nil assigns(:total_saves)
     assert_not_nil assigns(:total_items)
+    assert_not_nil assigns(:user_join_data)
   end
 
   test "should get new" do
