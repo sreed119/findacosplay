@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @users = User.alphabetical
     @admins = User.admins.alphabetical
     @regular_users = User.users.alphabetical
+    @count = User.count
   end
 
   def show
