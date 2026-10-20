@@ -3,6 +3,8 @@
         <h4><%= @user.username %></h4><br />
         <b>Email: <%= @user.email %></b><br />
         <p>&nbsp;</p>
+        <p>A member of Find a Cosplay since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
+        <p>&nbsp;</p>
         <% if controller.respond_to?(:update) && can?(:update, @user) %>
             <%= link_to edit_user_path(@user), class: 'btn-floating waves-effect waves-light pink lighten-3' do %>
                 <i class="material-icons left">mode_edit</i>

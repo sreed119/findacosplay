@@ -1,5 +1,5 @@
 <% if @user_items.any? %>
-    <h4>Saved Items</h4>
+    <h4>Saved Items (<%= @count %>)</h4>
     <% for user_item in @user_items %>
         <div class="col s4">
             <div class="card small">

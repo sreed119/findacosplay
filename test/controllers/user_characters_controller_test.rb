@@ -13,6 +13,7 @@ class UserCharactersControllerTest < ActionDispatch::IntegrationTest
     get user_characters_path
     assert_response :success
     assert_not_nil assigns(:user_characters)
+    assert_not_nil assigns(:count)
   end
 
   test "should get new" do

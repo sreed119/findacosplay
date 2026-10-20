@@ -6,6 +6,7 @@ class UserItemsController < ApplicationController
   # GET /user_items
   def index
     @user_items = UserItem.where(user_id: current_user.id)
+    @count = UserItem.where(user_id: current_user.id).count
   end
 
   def new

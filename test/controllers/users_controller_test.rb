@@ -35,6 +35,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should show user" do
     get user_path(@user)
     assert_response :success
+    assert_not_nil assigns(:count_items)
+    assert_not_nil assigns(:count_characters)
+    assert_not_nil assigns(:count_media)
   end
 
   test "should get edit" do

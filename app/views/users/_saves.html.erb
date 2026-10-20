@@ -2,9 +2,9 @@
     <div class="card small hide-on-med-and-down">
         <div class="card-content">
             <h4>Saves</h4><br />
-            <b><%= link_to 'Items', user_items_path %></b><br />
-            <b><%= link_to 'Characters', user_characters_path %></b><br />
-            <b><%= link_to 'Media', user_media_path %></b>
+            <b><%= link_to "Items (#{@count_items})", user_items_path %></b><br />
+            <b><%= link_to "Characters (#{@count_characters})", user_characters_path %></b><br />
+            <b><%= link_to "Media (#{@count_media})", user_media_path %></b>
         </div>
     </div>
 <% end %>

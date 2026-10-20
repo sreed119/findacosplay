@@ -11,6 +11,8 @@ class UserItemsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get user_items_path
     assert_response :success
+    assert_not_nil assigns(:user_items)
+    assert_not_nil assigns(:count)
   end
 
   test "should get new" do

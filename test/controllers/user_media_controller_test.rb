@@ -12,6 +12,7 @@ class UserMediaControllerTest < ActionDispatch::IntegrationTest
     get user_media_path
     assert_response :success
     assert_not_nil assigns(:user_media)
+    assert_not_nil assigns(:count)
   end
 
   test "should get new" do

@@ -6,6 +6,7 @@ class UserMediaController < ApplicationController
   # GET /user_media
   def index
     @user_media = UserMedium.where(user_id: current_user.id)
+    @count = UserMedium.where(user_id: current_user.id).count
   end
 
   def new

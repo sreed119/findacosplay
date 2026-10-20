@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @count_items = UserItem.where(user_id: @user.id).count
+    @count_characters = UserCharacter.where(user_id: @user.id).count
+    @count_media = UserMedium.where(user_id: @user.id).count
   end
 
   def new
