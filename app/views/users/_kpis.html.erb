@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Key Performance Indicators</h4>
+        <ul class="collection">
+            <li class="collection-item">Total Users: <b><%= @count %></b></li>
+            <li class="collection-item">Total Saves: <b><%= @total_saves %></b></li>
+            <li class="collection-item">Item Catalogue: <b><%= @total_items %></b></li>
+        </ul>
+        <%= bar_chart @user_data, title: "User Distribution", colors: ["#8ac5f2", "#ef94d0"] %>
+    </div>
+</div>

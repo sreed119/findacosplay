@@ -1,7 +1,11 @@
 <div class="card">
     <div class="card-content">
-        <h4>All Users (<%= @count %>)</h4>
-        <p>This page is only available to site admin.</p>
+        <h4>All Users (<%= @count %>)
+            <%= link_to(eval("new_user_path"), class: "btn-floating waves-effect waves-light pink lighten-3") do %>
+                <i class="material-icons">add</i>
+            <% end %>
+        </h4>
+        <p>Full user list is only available to site admin.</p>
         <ul class="collection">
             <% for user in @users %>
                 <% if logged_in? && user.username == current_user.username %>

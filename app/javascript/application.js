@@ -2,6 +2,8 @@
 
 import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
+import "Chart.bundle"
+import "chartkick"
 import "custom"
 
 ActiveStorage.start()

@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @admins = User.admins.alphabetical
     @regular_users = User.users.alphabetical
     @count = User.count
+    @user_data = { "Admin" => User.admins.count, "Regular Users" => User.users.count }
+    @total_saves = UserItem.count + UserCharacter.count + UserMedium.count
+    @total_items = Item.count
   end
 
   def show
